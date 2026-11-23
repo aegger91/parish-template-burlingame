@@ -17,13 +17,17 @@
     "check-links:external": "node scripts/check-links.mjs --external",
     "check-crosses": "node scripts/check-crosses.mjs",
     "check-copy": "node scripts/check-copy.mjs",
+    "check-language-fit": "node scripts/check-language-fit.mjs",
     "translate": "node scripts/translate.mjs",
     "translate:check": "node scripts/translate.mjs --check",
-    "test": "npm run build && npm run check-links && npm run check-crosses && npm run check-copy && npm run translate:check"
+    "test": "npm run build && npm run check-links && npm run check-crosses && npm run check-copy && npm run translate:check && npm run check-language-fit"
   },
   "dependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "marked": "^15.0.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.43.1"
   }
 }
