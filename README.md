@@ -27,7 +27,7 @@ The menu is built from the pages: `parent` puts a page under another one (in the
 |---|---|
 | Parish name, address, phone, email, social links, logo | `content/site.json` |
 | Optional parts of the site | `site.features`: `livestream`, `store`, `serviceRequests`, `commemorations`, `getInvolved`, `newsletter`. Off removes the pages, menu items, links and header cart. |
-| Church calendar | `site.calendar.style`: `julian`, `revised-julian` or `gregorian` |
+| Church calendar | `site.calendarStyle`: `old` (Julian, default) or `new` (Revised Julian). Controls fixed feast dates and saint-of-the-day labels; movable Pascha-based feasts are the same in both. On the Old Calendar, dates show as civil plus O.S. (e.g. `Dec 19 (Dec 6 O.S.)`). A small “Old Calendar (Julian)” / “New Calendar” label appears in schedule headers. There is no visitor-facing toggle. |
 | Languages | `site.locales` (one or more; `dir: "rtl"` for right-to-left). Missing text falls back to `site.sourceLocale`. |
 | Logo | `site.logo.image`. Any shape works; the header sizes it by height. |
 | Sections on a page | The `sections` list in the page file. Move a section to reorder it; `"enabled": false` hides it. |
@@ -46,7 +46,9 @@ Every form works in sample mode until it is connected. Each one either posts JSO
 ParishSite.handlers.checkout = (order) => fetch('/api/checkout', { method: 'POST', body: JSON.stringify(order) }).then((r) => r.json());
 ```
 
-Handlers: `checkout` (store and commemoration notes), `donate`, `contact`, `newsletter`, `serviceRequest`, `ocSignup` and `ocOpen` (OrthodoxConnect). Prices shown on the site are for display; the payment provider must price the order itself.
+Handlers: `checkout` (store and commemoration names), `donate`, `contact`, `newsletter`, `serviceRequest`, `ocSignup` and `ocOpen` (OrthodoxConnect). Prices shown on the site are for display; the payment provider must price the order itself. Donation and commemoration amount fields start at 0 with optional suggested chips and a free Other amount; there is no minimum amount.
+
+Schedule and event rows open a detail panel with Add to calendar (`.ics` download and a Google Calendar link), Get directions, and the livestream link when the service is marked live.
 
 OrthodoxConnect: `site.orthodoxConnect` holds the parish id, the app URL and the link templates for "Create an event" and "Post a need". Until the parish connects, the events and needs come from `content/integrations/orthodoxconnect.sample.json` and are labeled as samples.
 
@@ -58,8 +60,10 @@ Requires Node 20 or later.
 npm ci
 npm run dev     # http://localhost:4321, rebuilds on change
 npm run build   # validate content and write the static site to dist/
-npm test        # build, links, crosses, copy rules, translation status
+npm test        # build, links, crosses, copy rules, translation status, language-fit
 ```
+
+`npm run check-language-fit` loads every page in every language at 360 / 768 / 1280 and flags text that overflows or overlaps.
 
 Upload `dist/` to any static host. Set `SITE_URL=https://your-domain` when building for absolute canonical and sitemap URLs, and `BASE_PATH=/sub/path` if the site is not at the domain root. Serve `404.html` for unknown paths.
 

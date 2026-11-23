@@ -5,7 +5,7 @@ import { esc, raw } from './html.mjs';
 import { pickLocale, formatDate, formatTime, interpolate } from './i18n.mjs';
 import { imageSize } from './images.mjs';
 import { PUBLIC_DIR } from './content.mjs';
-import { feastsOn, churchDate, toIso } from './calendar.mjs';
+import { feastsOn, churchDate, toIso, normalizeCalendarStyle, isOldCalendar } from './calendar.mjs';
 
 const ASSET_PREFIXES = ['/assets/', '/logo/'];
 
@@ -89,15 +89,28 @@ export function createContext({ content, locale, page, basePath = '', siteUrl })
     new Intl.NumberFormat(locale, { style: 'currency', currency: ctx.currency, minimumFractionDigits: Number.isInteger(amount) ? 0 : 2, maximumFractionDigits: 2 }).format(amount);
 
   const cal = site.calendar || {};
-  ctx.calendarStyle = cal.style || 'gregorian';
+  // site.calendarStyle: 'old' | 'new' (default old). Legacy site.calendar.style
+  // values (julian / revised-julian / gregorian) are still accepted.
+  ctx.calendarStyle = normalizeCalendarStyle(site.calendarStyle || cal.style || 'old');
+  ctx.calendarStyleKey = isOldCalendar(ctx.calendarStyle) ? 'old' : 'new';
   ctx.feastsOn = (iso) => feastsOn(iso, ctx.calendarStyle, content.calendar);
-  // "November 10" for a civil date, on the Julian calendar (Old Style), when
-  // the parish keeps the Julian calendar and shows both dates.
+  // Civil date with Old Style when the parish keeps the Julian calendar, e.g.
+  // "December 19 (December 6 O.S.)". Empty string on the New Calendar.
+  ctx.civilWithOs = (iso, style = 'dayMonth') => {
+    const civil = formatDate(iso, locale, style);
+    if (!isOldCalendar(ctx.calendarStyle) || cal.showOldStyle === false) return civil;
+    const j = churchDate(iso, 'julian');
+    return ctx.t('calendar.civilWithOs', {
+      civil,
+      os: formatDate(toIso(j.y, j.m, j.d), locale, style === 'weekdayLong' ? 'dayMonth' : style)
+    });
+  };
   ctx.oldStyleDate = (iso) => {
-    if (ctx.calendarStyle !== 'julian' || cal.showOldStyle === false) return '';
+    if (!isOldCalendar(ctx.calendarStyle) || cal.showOldStyle === false) return '';
     const j = churchDate(iso, 'julian');
     return ctx.t('calendar.oldStyle', { date: formatDate(toIso(j.y, j.m, j.d), locale, 'dayMonth') });
   };
+  ctx.calendarLabel = () => ctx.t(ctx.calendarStyleKey === 'old' ? 'calendar.styleOld' : 'calendar.styleNew');
   ctx.imageSize = (src) => imageSize(PUBLIC_DIR, src);
 
   // site.logo: image (optional, any shape), favicon (SVG or PNG) and icon

@@ -24,7 +24,8 @@
     "getInvolved": true,
     "newsletter": true
   },
-  "calendar": { "style": "julian", "showOldStyle": true },
+  "calendarStyle": "old",
+  "calendar": { "showOldStyle": true },
   "contact": {
     "address": {
       "street": "100 Example Avenue",

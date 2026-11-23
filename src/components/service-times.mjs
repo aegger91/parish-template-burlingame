@@ -55,10 +55,26 @@ export function serviceRow(entry, ctx, { compact = false, hidden = null } = {}) 
   const note = ctx.l(entry.note) || (feast ? ctx.l(feast.title) : '');
   const rank = feast?.rank;
   const marked = rank === 'great' || rank === 'major';
-  return html`<li${attrs({ class: cx('service-list__item', entry.noService && 'is-none', marked && `is-feast is-feast--${rank}`), 'data-date': entry.date, hidden })}>
-    <time class="service-list__date" datetime="${entry.date}${entry.time ? `T${entry.time}` : ''}">${ctx.formatDate(entry.date, 'weekdayLong')}</time>
+  const streamed = isStreamed(entry, ctx);
+  const dateLabel = ctx.civilWithOs ? ctx.civilWithOs(entry.date, 'weekdayLong') : ctx.formatDate(entry.date, 'weekdayLong');
+  return html`<li${attrs({
+    class: cx('service-list__item', 'is-clickable', entry.noService && 'is-none', marked && `is-feast is-feast--${rank}`),
+    'data-date': entry.date,
+    'data-event': true,
+    'data-event-id': entry.id,
+    'data-event-time': entry.time || '',
+    'data-event-title': label,
+    'data-event-note': note || '',
+    'data-event-stream': streamed ? '1' : '',
+    'data-event-dur': entry.durationMinutes || serviceType(entry, ctx)?.durationMinutes || 90,
+    role: 'button',
+    tabindex: '0',
+    'aria-label': ctx.t('schedule.openDetails', { title: label }),
+    hidden
+  })}>
+    <time class="service-list__date" datetime="${entry.date}${entry.time ? `T${entry.time}` : ''}">${dateLabel}</time>
     <div class="service-list__body">
-      <p class="service-list__service">${time ? html`<span class="service-list__time">${time}</span>` : ''}<span>${label}</span>${isStreamed(entry, ctx) ? html`<span class="stream-tag" title="${ctx.t('live.streamed')}">${icon('live', 'stream-tag__icon')}<span class="visually-hidden">${ctx.t('live.streamed')}</span></span>` : ''}</p>
+      <p class="service-list__service">${time ? html`<span class="service-list__time">${time}</span>` : ''}<span>${label}</span>${streamed ? html`<span class="stream-tag" title="${ctx.t('live.streamed')}">${icon('live', 'stream-tag__icon')}<span class="visually-hidden">${ctx.t('live.streamed')}</span></span>` : ''}</p>
       ${note && !compact ? html`<p class="service-list__note">${marked ? cross('service-list__cross') : ''}<span>${note}</span></p>` : ''}
     </div>
   </li>`;

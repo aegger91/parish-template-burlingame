@@ -19,16 +19,21 @@ function updateHeaderOffset() {
   root.style.setProperty('--header-height', header.offsetHeight + 'px');
 }
 
-/* ---- scroll */
+/* ---- scroll (height stays fixed; only shadow + hide-on-scroll change) */
 var lastY = window.scrollY;
 var ticking = false;
+var compactOn = false;
 function onScroll() {
   if (!header) return;
   var y = window.scrollY;
-  header.classList.toggle('is-compact', y > 24);
+  var wantCompact = y > 24;
+  if (wantCompact !== compactOn) {
+    compactOn = wantCompact;
+    header.classList.toggle('is-compact', compactOn);
+  }
   var busy = header.contains(doc.activeElement) && doc.activeElement !== doc.body || header.querySelector('[aria-expanded="true"]') || header.querySelector('details[open]');
-  if (y > 480 && y > lastY + 6 && !busy) header.classList.add('is-hidden');
-  else if (y < lastY - 6 || y <= 480) header.classList.remove('is-hidden');
+  if (y > 480 && y > lastY + 8 && !busy) header.classList.add('is-hidden');
+  else if (y < lastY - 8 || y <= 480) header.classList.remove('is-hidden');
   lastY = y;
   updateHeaderOffset();
 }

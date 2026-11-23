@@ -4,8 +4,8 @@
  * from the page data (services) or the section's own JSON (OrthodoxConnect
  * events). Feasts come from content/calendar.json via the page data.
  */
-var style = (SITE.calendar || {}).style || 'gregorian';
-var showOS = style === 'julian' && (SITE.calendar || {}).showOldStyle !== false;
+var style = normalizeCalendarStyle((SITE.calendar || {}).style || (SITE.calendar || {}).key || 'old');
+var showOS = isOldCalendar(style) && (SITE.calendar || {}).showOldStyle !== false;
 var weekStart = SITE.weekStart || 0;
 
 function el(tag, cls, text) {
@@ -38,6 +38,13 @@ function feastInfo(iso) {
   return { list: list, rank: top ? top.rank : null, cls: top && (top.rank === 'great' || top.rank === 'major') ? ' is-feast is-feast--' + top.rank : '' };
 }
 
+function civilWithOs(iso, dateStyle) {
+  var civil = fmtDate(iso, dateStyle || 'dayMonth');
+  if (!showOS) return civil;
+  var j = churchDate(iso, 'julian');
+  return t('calendar.civilWithOs', { civil: civil, os: fmtDate(toIso(j.y, j.m, j.d), 'dayMonth') });
+}
+
 function osDate(iso) {
   if (!showOS) return '';
   var j = churchDate(iso, 'julian');
@@ -45,7 +52,21 @@ function osDate(iso) {
 }
 
 function entryNode(e, compact) {
-  var li = el('li', 'sched-entry' + (e.none ? ' sched-entry--none' : ''));
+  var li = el('li', 'sched-entry' + (e.none ? ' sched-entry--none' : ' is-clickable'));
+  if (!e.none) {
+    li.setAttribute('data-event', '');
+    li.setAttribute('data-date', e.d);
+    if (e.id) li.setAttribute('data-event-id', e.id);
+    li.setAttribute('data-event-time', e.t || '');
+    li.setAttribute('data-event-title', e.title || '');
+    li.setAttribute('data-event-note', e.note || '');
+    if (e.place) li.setAttribute('data-event-place', e.place);
+    if (e.stream) li.setAttribute('data-event-stream', '1');
+    li.setAttribute('data-event-dur', String(e.dur || 90));
+    li.setAttribute('role', 'button');
+    li.tabIndex = 0;
+    li.setAttribute('aria-label', t('schedule.openDetails', { title: e.title || '' }));
+  }
   if (e.t) li.appendChild(el('span', 'sched-entry__time', fmtTime(e.t)));
   var what = el('span', 'sched-entry__title', e.title);
   if (e.stream) what.appendChild(liveIcon());
@@ -91,11 +112,9 @@ function initSchedule(box) {
   function dayHeadNode(iso, f, cls) {
     var head = el('div', cls);
     var wd = el('span', cls + '-weekday', fmtDate(iso, 'weekdayShort'));
-    var num = el('span', cls + '-date', fmtDate(iso, 'dayMonth'));
+    var num = el('span', cls + '-date', civilWithOs(iso, 'dayMonth'));
     head.appendChild(wd);
     head.appendChild(num);
-    var os = osDate(iso);
-    if (os) head.appendChild(el('span', cls + '-os', os));
     return head;
   }
 
@@ -238,6 +257,9 @@ function initSchedule(box) {
     anchor = TODAY;
     render();
   });
+
+  var calLabel = box.querySelector('[data-calendar-label]');
+  if (calLabel && SITE.calendar && SITE.calendar.label) calLabel.textContent = SITE.calendar.label;
 
   bar.hidden = false;
   if (legend) legend.hidden = false;

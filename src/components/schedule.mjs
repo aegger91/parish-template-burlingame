@@ -25,8 +25,8 @@ export const meta = {
 
 function eventRows(entries, ctx) {
   return entries.map(
-    (e) => html`<li class="service-list__item" data-date="${e.d}">
-      <time class="service-list__date" datetime="${e.d}">${ctx.formatDate(e.d, 'weekdayLong')}</time>
+    (e) => html`<li class="service-list__item is-clickable" data-date="${e.d}" data-event data-event-id="${e.id || ''}" data-event-time="${e.t || ''}" data-event-title="${e.title}" data-event-note="${e.note || ''}" data-event-place="${e.note || ''}" role="button" tabindex="0" aria-label="${ctx.t('schedule.openDetails', { title: e.title })}">
+      <time class="service-list__date" datetime="${e.d}">${ctx.civilWithOs(e.d, 'weekdayLong')}</time>
       <div class="service-list__body"><p class="service-list__service">${e.t ? html`<span class="service-list__time">${ctx.formatTime(e.t)}</span>` : ''}<span>${e.title}</span></p>
       ${e.note ? html`<p class="service-list__note"><span>${e.note}</span></p>` : ''}</div>
     </li>`
@@ -41,6 +41,7 @@ export function render(p, ctx) {
   const legend = p.showLegend !== false;
   return html`<div class="${cx('schedule', `schedule--${source}`)}" data-schedule data-source="${source}" data-view="${view}">
     ${sectionHead(p, ctx)}
+    <p class="schedule__cal-label" data-calendar-label>${ctx.calendarLabel()}</p>
     ${p.showSeason ? seasonNotice(ctx) : ''}
     ${p.showNotices ? ctx.content.services.notices.filter((n) => n.published !== false).map((n) => html`<p class="notice notice--alert">${icon('clock', 'notice__icon')}<span>${ctx.l(n.text)}</span></p>`) : ''}
     <div class="schedule__bar" data-schedule-bar hidden>

@@ -95,14 +95,14 @@
           }
         },
         {
-          "title": { "en": "Commemoration notes", "ru": "Записки" },
+          "title": { "en": "Commemoration names", "ru": "Записки" },
           "text": {
             "en": "Send names for health or repose, with a candle.",
             "ru": "Подайте имена о здравии или об упокоении и поставьте свечу."
           },
           "icon": "slip",
           "link": {
-            "label": { "en": "Write a note", "ru": "Написать записку" },
+            "label": { "en": "Submit names", "ru": "Написать записку" },
             "page": "zapiski"
           }
         },

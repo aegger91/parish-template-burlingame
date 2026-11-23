@@ -10,6 +10,9 @@
  * the one place to connect Stripe, Authorize.net, PayPal or another
  * processor. When giving.endpoint is set and no handler exists, it POSTs
  * there instead.
+ *
+ * Amounts start at 0 with optional suggested chips and a free Other amount
+ * field. There is no minimum amount.
  */
 import { html } from '../lib/html.mjs';
 import { sectionHead, actions, icon, cross } from './_primitives.mjs';
@@ -17,7 +20,7 @@ import { sectionHead, actions, icon, cross } from './_primitives.mjs';
 export const donateMeta = {
   type: 'donate-form',
   title: 'Donation form',
-  description: 'One-time or monthly gift with preset amounts, a custom amount and a fund picker. Placeholder payment handler.',
+  description: 'One-time or monthly gift with suggested amounts, a custom amount and a fund picker. Placeholder payment handler.',
   dataSources: ['giving.json']
 };
 
@@ -44,16 +47,16 @@ export function renderDonate(p, ctx) {
       </div>
       ${['once', 'monthly'].map(
         (f) => html`<fieldset class="amounts" data-amounts="${f}"${f === first ? '' : ' hidden'}>
-          <legend class="field__label">${ctx.t('donate.amount')}</legend>
+          <legend class="field__label">${ctx.t('donate.suggested')}</legend>
           <div class="amounts__grid">
-            ${amounts[f].map((a, i) => html`<label class="amount"><input class="visually-hidden" type="radio" name="amount-${f}" value="${a}"${i === 1 ? ' checked' : ''}><span>${ctx.money(a)}${f === 'monthly' ? html`<small>${ctx.t('donate.perMonth')}</small>` : ''}</span></label>`)}
-            <label class="amount amount--other"><input class="visually-hidden" type="radio" name="amount-${f}" value="other"><span>${ctx.t('donate.other')}</span></label>
+            ${amounts[f].map((a) => html`<label class="amount"><input class="visually-hidden" type="radio" name="amount-${f}" value="${a}"><span>${ctx.money(a)}${f === 'monthly' ? html`<small>${ctx.t('donate.perMonth')}</small>` : ''}</span></label>`)}
+            <label class="amount amount--other"><input class="visually-hidden" type="radio" name="amount-${f}" value="other" checked><span>${ctx.t('donate.other')}</span></label>
           </div>
         </fieldset>`
       )}
-      <div class="field" data-other-amount hidden>
+      <div class="field" data-other-amount>
         <label class="field__label" for="dn-other">${ctx.t('donate.otherAmount')}</label>
-        <div class="money-input"><span class="money-input__sign" aria-hidden="true">${ctx.money(0).replace(/[\d.,\s\u00a0]/g, '')}</span><input class="field__input" id="dn-other" name="other" type="number" inputmode="decimal" min="1" step="1"></div>
+        <div class="money-input"><span class="money-input__sign" aria-hidden="true">${ctx.money(0).replace(/[\d.,\s\u00a0]/g, '')}</span><input class="field__input" id="dn-other" name="other" type="number" inputmode="decimal" min="0" step="any" value="0" placeholder="0"></div>
       </div>
       ${funds.length > 1
         ? html`<div class="field"><label class="field__label" for="dn-fund">${ctx.t('donate.fund')}</label>

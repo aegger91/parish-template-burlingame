@@ -115,7 +115,7 @@ export function render(p, ctx) {
         ${z.donation?.enabled !== false
           ? html`<div class="field">
               <label class="field__label" for="zap-donation">${ctx.l(z.donation?.label) || ctx.t('zapiski.donation')} <span class="field__optional">${ctx.t('form.optional')}</span></label>
-              <div class="money-input"><span class="money-input__sign" aria-hidden="true">${ctx.money(0).replace(/[\d.,\s\u00a0]/g, '')}</span><input class="field__input" id="zap-donation" type="number" inputmode="decimal" min="0" step="1" placeholder="0" data-zapiski-donation></div>
+              <div class="money-input"><span class="money-input__sign" aria-hidden="true">${ctx.money(0).replace(/[\d.,\s\u00a0]/g, '')}</span><input class="field__input" id="zap-donation" type="number" inputmode="decimal" min="0" step="any" value="0" placeholder="0" data-zapiski-donation></div>
             </div>`
           : ''}
         <dl class="cart__totals">

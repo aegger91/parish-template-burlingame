@@ -339,6 +339,28 @@ ${drawer(ctx, tree)}
   <button class="lightbox__btn lightbox__next" type="button" data-lb-next aria-label="${ctx.t('gallery.next')}">${icon('chevron')}</button>
   <p class="lightbox__count" data-lb-count aria-live="polite"></p>
 </div>
+<dialog class="modal schedule-detail" data-schedule-dialog aria-labelledby="schedule-detail-title">
+  <div class="modal__panel">
+    <div class="modal__head">
+      <h2 class="modal__title" id="schedule-detail-title" data-sd-title></h2>
+      <button class="icon-btn modal__close" type="button" data-modal-close>${icon('close', 'icon-btn__icon')}<span class="visually-hidden">${ctx.t('form.close')}</span></button>
+    </div>
+    <dl class="schedule-detail__meta">
+      <div><dt>${ctx.t('schedule.when')}</dt><dd data-sd-when></dd></div>
+      <div data-sd-where-row><dt>${ctx.t('schedule.where')}</dt><dd data-sd-where></dd></div>
+      <div><dt>${ctx.t('schedule.note')}</dt><dd data-sd-note></dd></div>
+    </dl>
+    <div class="schedule-detail__actions modal__actions">
+      <div class="schedule-detail__calendar">
+        <span class="schedule-detail__cal-label">${ctx.t('schedule.addToCalendar')}</span>
+        <button class="btn btn--secondary btn--sm" type="button" data-sd-ics>${icon('calendar', 'btn__icon')}<span>${ctx.t('schedule.downloadIcs')}</span></button>
+        <a class="btn btn--secondary btn--sm" data-sd-gcal target="_blank" rel="noopener">${icon('calendar', 'btn__icon')}<span>${ctx.t('schedule.googleCalendar')}</span></a>
+      </div>
+      <a class="btn btn--primary btn--sm" data-sd-directions target="_blank" rel="noopener" hidden>${icon('pin', 'btn__icon')}<span>${ctx.t('schedule.getDirections')}</span></a>
+      <a class="btn btn--accent btn--sm" data-sd-live target="_blank" rel="noopener" hidden>${icon('live', 'btn__icon')}<span>${ctx.t('schedule.watchLive')}</span></a>
+    </div>
+  </div>
+</dialog>
 ${clientData(ctx)}`.toString()}
 </body>
 </html>

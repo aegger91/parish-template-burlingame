@@ -67,9 +67,11 @@ h4 {
   margin: 0;
   font-family: var(--font-role-heading);
   font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
+  /* Slightly looser than "tight" so descenders and Cyrillic are not clipped. */
+  line-height: 1.25;
   letter-spacing: var(--letter-spacing-tight);
   color: var(--heading);
+  overflow-wrap: anywhere;
   text-wrap: balance;
 }
 

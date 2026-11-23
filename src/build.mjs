@@ -53,7 +53,7 @@ function writeFile(file, data) {
 // site.js = the shared calendar module (exports stripped, so the browser
 // computes feasts and dates exactly like the build) + src/client/*.js in
 // CLIENT_ORDER, in one closure (src/client/core.js explains the handler hooks).
-const CLIENT_ORDER = ['core.js', 'header.js', 'schedule.js', 'live.js', 'filters.js', 'media.js', 'forms.js', 'cart.js', 'zapiski.js', 'connect.js'];
+const CLIENT_ORDER = ['core.js', 'header.js', 'schedule.js', 'schedule-detail.js', 'live.js', 'filters.js', 'media.js', 'forms.js', 'cart.js', 'zapiski.js', 'connect.js'];
 
 function clientScript() {
   const calendar = fs

@@ -51,7 +51,7 @@
           "page": "request-service"
         },
         {
-          "label": { "en": "Commemoration notes", "ru": "Записки" },
+          "label": { "en": "Commemoration names", "ru": "Записки" },
           "page": "zapiski"
         }
       ]

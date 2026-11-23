@@ -14,7 +14,7 @@
     {
       "id": "zapiska",
       "icon": "slip",
-      "title": { "en": "Submit a Commemoration Note", "ru": "Подать записку" },
+      "title": { "en": "Commemoration names", "ru": "Подать записку" },
       "summary": { "en": "Names for health or repose.", "ru": "Имена о здравии или о упокоении." },
       "price": { "type": "donation" },
       "duration": { "en": "Read at the next Liturgy", "ru": "Читается за ближайшей литургией" },

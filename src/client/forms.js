@@ -28,10 +28,9 @@ $all('form[data-form="donate"]').forEach(function (form) {
     var f = frequency();
     $all('[data-amounts]', form).forEach(function (g) { g.hidden = g.getAttribute('data-amounts') !== f; });
     var picked = form.querySelector('[name="amount-' + f + '"]:checked');
-    other.hidden = !(picked && picked.value === 'other');
-    otherInput.required = !other.hidden;
+    if (other) other.hidden = !(picked && picked.value === 'other');
     var a = amount();
-    label.textContent = a ? t(f === 'monthly' ? 'donate.giveMonthly' : 'donate.giveAmount', { amount: money(a) }) : t('donate.give');
+    if (label) label.textContent = a ? t(f === 'monthly' ? 'donate.giveMonthly' : 'donate.giveAmount', { amount: money(a) }) : t('donate.give');
   };
   form.addEventListener('change', function (e) {
     if (e.target.name === 'fund' && hint) hint.textContent = hints[e.target.value] || '';
@@ -44,7 +43,8 @@ $all('form[data-form="donate"]').forEach(function (form) {
     if (!validate(form)) return;
     var v = formValues(form);
     var gift = { frequency: frequency(), amount: amount(), currency: CURRENCY, fund: v.fund, name: v.name, email: v.email };
-    if (!(gift.amount > 0)) {
+    // No minimum: zero and any positive amount are accepted.
+    if (!(gift.amount >= 0) || Number.isNaN(gift.amount)) {
       if (otherInput) otherInput.focus();
       return;
     }

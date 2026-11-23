@@ -307,7 +307,7 @@
 
 .hero__next-list li {
   display: grid;
-  grid-template-columns: 6.9rem minmax(0, 1fr);
+  grid-template-columns: minmax(5.5rem, 7.5rem) minmax(0, 1fr);
   gap: var(--space-3);
   align-items: baseline;
   padding-block: var(--space-2);
@@ -322,7 +322,9 @@
   font-family: var(--font-role-heading);
   font-weight: var(--font-weight-bold);
   color: var(--heading);
-  white-space: nowrap;
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .hero__next-what {
@@ -421,7 +423,7 @@
   position: relative;
   background: var(--surface-highlight);
   border-bottom: 1px solid var(--border);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .page-header::before {

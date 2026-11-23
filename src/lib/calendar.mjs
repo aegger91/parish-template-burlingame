@@ -3,12 +3,25 @@
 // and plain ES2015: no imports, every export is a function declaration).
 //
 // Dates are "YYYY-MM-DD" strings on the civil (Gregorian) calendar unless a
-// name says otherwise. The church calendar style comes from site.calendar.style:
-//   "julian"          fixed feasts on the Julian (Old Style) calendar, Orthodox Pascha
-//   "revised-julian"  fixed feasts on the civil calendar, Orthodox Pascha
-//   "gregorian"       fixed feasts on the civil calendar, Western Pascha
+// name says otherwise. The parish setting is site.calendarStyle:
+//   "old"  Julian fixed feasts + Orthodox Pascha (default); show civil + O.S.
+//   "new"  Revised Julian fixed feasts + Orthodox Pascha
+// Internal engine styles (also accepted for compatibility):
+//   "julian" / "revised-julian" / "gregorian"
 // Feast data (content/calendar.json): fixed feasts keyed "MM-DD" in the
 // church's own calendar, movable feasts keyed by their day offset from Pascha.
+// Movable Pascha-based feasts use Orthodox Pascha for both old and new.
+
+export function normalizeCalendarStyle(style) {
+  if (style === 'old' || style === 'julian') return 'julian';
+  if (style === 'new' || style === 'revised-julian') return 'revised-julian';
+  if (style === 'gregorian') return 'gregorian';
+  return 'julian';
+}
+
+export function isOldCalendar(style) {
+  return normalizeCalendarStyle(style) === 'julian';
+}
 
 export function pad2(n) {
   return (n < 10 ? '0' : '') + n;
@@ -105,12 +118,12 @@ export function westernPascha(year) {
 }
 
 export function paschaFor(year, style) {
-  return style === 'gregorian' ? westernPascha(year) : orthodoxPascha(year);
+  return normalizeCalendarStyle(style) === 'gregorian' ? westernPascha(year) : orthodoxPascha(year);
 }
 
-// The church's own date for a civil date: Julian for "julian", else the same.
+// The church's own date for a civil date: Julian for old/julian, else the same.
 export function churchDate(iso, style) {
-  if (style !== 'julian') return parseIso(iso);
+  if (!isOldCalendar(style)) return parseIso(iso);
   return jdnToJulian(isoToJdn(iso));
 }
 
@@ -118,7 +131,7 @@ export function churchDate(iso, style) {
 export function fixedFeastDate(mmdd, civilYear, style) {
   var m = +mmdd.slice(0, 2);
   var d = +mmdd.slice(3, 5);
-  if (style !== 'julian') return toIso(civilYear, m, d);
+  if (!isOldCalendar(style)) return toIso(civilYear, m, d);
   // A Julian date can land in the next civil year (Dec 19-31 Julian -> January),
   // so pick the Julian year whose feast falls in civilYear.
   for (var y = civilYear - 1; y <= civilYear; y++) {

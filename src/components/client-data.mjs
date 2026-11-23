@@ -5,10 +5,11 @@
 import { raw } from '../lib/html.mjs';
 import { featureEnabled } from '../lib/content.mjs';
 import { allServices, serviceLabel, serviceType } from './service-times.mjs';
+import { addressLines } from './contact.mjs';
 
 const CLIENT_PREFIXES = [
   'a11y.', 'schedule.', 'calendar.', 'live.', 'form.', 'newsletter.', 'donate.', 'sermons.', 'filter.', 'gallery.',
-  'cart.', 'checkout.', 'store.', 'requests.', 'zapiski.', 'oc.'
+  'cart.', 'checkout.', 'store.', 'requests.', 'zapiski.', 'oc.', 'contact.'
 ];
 
 export function livestreamPage(ctx) {
@@ -21,11 +22,20 @@ export function clientData(ctx) {
   const feast = (f) => ({ date: f.date, offset: f.offset, rank: f.rank, title: ctx.l(f.title) });
   const live = featureEnabled(site, 'livestream') ? site.livestream : null;
   const livePage = livestreamPage(ctx);
+  const place = addressLines(ctx).join(', ');
   const data = {
     locale: ctx.locale,
     tz: site.timezone,
     weekStart: ctx.localeInfo.weekStart ?? cal.weekStart ?? 0,
-    calendar: { style: ctx.calendarStyle, showOldStyle: cal.showOldStyle !== false },
+    calendar: {
+      style: ctx.calendarStyle,
+      key: ctx.calendarStyleKey,
+      showOldStyle: cal.showOldStyle !== false,
+      label: ctx.calendarLabel()
+    },
+    parish: ctx.l(site.name),
+    place: place,
+    directionsUrl: site.contact?.directionsUrl || null,
     feasts: { fixed: (content.calendar.fixed || []).map(feast), movable: (content.calendar.movable || []).map(feast) },
     services: allServices(ctx).map((e) => {
       const type = serviceType(e, ctx);
@@ -35,6 +45,7 @@ export function clientData(ctx) {
         t: e.time || '',
         title: serviceLabel(e, ctx),
         note: ctx.l(e.note) || undefined,
+        place: place,
         stream: live ? (e.stream ?? type?.streamed ?? false) : false,
         dur: e.durationMinutes || type?.durationMinutes || 90,
         none: e.noService || undefined

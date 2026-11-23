@@ -148,27 +148,34 @@
       "additionalProperties": false,
       "description": "Switch optional parts of the site on or off."
     },
+    "calendarStyle": {
+      "enum": [
+        "old",
+        "new"
+      ],
+      "description": "Church calendar: old = Julian (default), new = Revised Julian. Controls fixed feast dates and saint-of-the-day labels; movable Pascha feasts are the same in both."
+    },
     "calendar": {
       "type": "object",
       "properties": {
         "style": {
           "enum": [
+            "old",
+            "new",
             "julian",
             "revised-julian",
             "gregorian"
           ],
-          "description": "Church calendar for feasts."
+          "description": "Legacy alias for calendarStyle (old/julian, new/revised-julian). Prefer top-level calendarStyle."
         },
         "showOldStyle": {
           "type": "boolean",
-          "description": "Show the Old Style date (Julian only).",
+          "description": "Show the civil date with Old Style when calendarStyle is old (default true).",
           "default": true
         }
       },
-      "required": [
-        "style"
-      ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "Optional calendar display extras. Prefer site.calendarStyle for the calendar choice."
     },
     "contact": {
       "type": "object",

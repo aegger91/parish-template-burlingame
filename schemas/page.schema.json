@@ -1510,7 +1510,7 @@
     },
     "donate-form": {
       "title": "Donation form",
-      "description": "One-time or monthly gift with preset amounts, a custom amount and a fund picker. Placeholder payment handler.",
+      "description": "One-time or monthly gift with suggested amounts, a custom amount and a fund picker. Placeholder payment handler.",
       "type": "object",
       "properties": {
         "type": {

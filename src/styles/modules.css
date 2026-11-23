@@ -8,6 +8,15 @@
   gap: var(--space-5);
 }
 
+.schedule__cal-label {
+  margin: calc(var(--space-2) * -1) 0 0;
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
 .schedule__bar {
   display: flex;
   flex-wrap: wrap;
@@ -86,6 +95,72 @@
   gap: 0.05rem;
   font-size: var(--font-size-sm);
   line-height: var(--line-height-snug);
+}
+
+.sched-entry.is-clickable,
+.service-list__item.is-clickable,
+.hero__next-list li.is-clickable {
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  outline-offset: 2px;
+}
+
+.sched-entry.is-clickable:hover,
+.service-list__item.is-clickable:hover,
+.hero__next-list li.is-clickable:hover {
+  background: color-mix(in srgb, var(--accent-soft) 45%, transparent);
+}
+
+.sched-entry.is-clickable:focus-visible,
+.service-list__item.is-clickable:focus-visible,
+.hero__next-list li.is-clickable:focus-visible {
+  outline: 2px solid var(--focus);
+}
+
+.schedule-detail__meta {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.schedule-detail__meta > div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.schedule-detail__meta dt {
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.schedule-detail__meta dd {
+  margin: 0;
+  line-height: var(--line-height-snug);
+}
+
+.schedule-detail__actions {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.schedule-detail__calendar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.schedule-detail__cal-label {
+  flex: 1 0 100%;
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .sched-entry__time {
@@ -186,8 +261,17 @@
   gap: var(--space-1);
   margin: 0;
   font-size: var(--font-size-xs);
-  line-height: var(--line-height-snug);
+  line-height: 1.4;
   color: var(--text-soft);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.week__feast > span,
+.month__feast > span,
+.agenda__feast > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .week__feast--great,
@@ -389,14 +473,16 @@
 
 .month__feast {
   font-size: var(--font-size-2xs);
+  white-space: normal;
 }
 
 .month__entries .sched-entry {
   display: block;
   font-size: var(--font-size-2xs);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .month__entries .sched-entry__time {

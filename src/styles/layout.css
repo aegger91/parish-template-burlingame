@@ -24,7 +24,11 @@
   backdrop-filter: saturate(1.4) blur(10px);
   -webkit-backdrop-filter: saturate(1.4) blur(10px);
   border-bottom: 1px solid var(--border);
-  transition: box-shadow var(--motion-base) var(--motion-ease), transform var(--motion-base) var(--motion-ease);
+  /* Height is reserved via min-height on the inner row; avoid animating
+     transform/size so language switches and scroll do not jitter the bar. */
+  transition: box-shadow var(--motion-base) var(--motion-ease);
+  transform: translateZ(0);
+  will-change: box-shadow;
 }
 
 .site-header::after {
@@ -42,18 +46,16 @@
 
 .site-header.is-hidden {
   transform: translateY(-100%);
+  transition: box-shadow var(--motion-base) var(--motion-ease), transform var(--motion-base) var(--motion-ease);
 }
 
 .site-header__inner {
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  min-height: var(--layout-header-height);
-  transition: min-height var(--motion-base) var(--motion-ease);
-}
-
-.site-header.is-compact .site-header__inner {
+  /* Fixed to the compact height so scroll compacting does not reflow the page. */
   min-height: var(--layout-header-height-compact);
+  height: var(--layout-header-height-compact);
 }
 
 /* brand: logo image of any shape beside the name, or the cross and name */
@@ -76,30 +78,21 @@
 
 .brand__mark img {
   display: block;
-  height: var(--layout-logo-height);
-  width: auto;
-  max-width: 180px;
-  object-fit: contain;
-  transition: height var(--motion-base) var(--motion-ease);
-}
-
-.site-header.is-compact .brand__mark img {
   height: var(--layout-logo-height-compact);
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
 }
 
 .brand__mark--cross {
-  width: calc(var(--layout-logo-height) * 0.62);
-  height: var(--layout-logo-height);
+  width: calc(var(--layout-logo-height-compact) * 0.62);
+  height: var(--layout-logo-height-compact);
   color: var(--accent);
 }
 
 .brand__cross {
   width: 58%;
   height: 80%;
-}
-
-.site-header.is-compact .brand__mark--cross {
-  height: var(--layout-logo-height-compact);
 }
 
 .brand__text {
@@ -110,27 +103,24 @@
 
 .brand__name {
   font-family: var(--font-role-heading);
-  font-size: clamp(1.1rem, 0.92rem + 0.42vw, 1.4rem);
+  font-size: clamp(1.05rem, 0.92rem + 0.35vw, 1.3rem);
   font-weight: var(--font-weight-bold);
-  line-height: 1.12;
+  line-height: 1.25;
   letter-spacing: 0.005em;
   color: var(--brand-strong);
+  overflow-wrap: anywhere;
   text-wrap: balance;
 }
 
 .brand__tagline {
   font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-semibold);
-  letter-spacing: var(--letter-spacing-caps);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-strong);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.site-header.is-compact .brand__tagline {
-  display: none;
+  line-height: 1.35;
+  white-space: normal;
+  overflow: visible;
 }
 
 .brand:hover .brand__name {
@@ -575,13 +565,11 @@ html:not(.js) .nav__item--more {
     gap: var(--space-3);
   }
 
-  .brand__mark img,
-  .site-header.is-compact .brand__mark img {
+  .brand__mark img {
     height: var(--layout-logo-height-mobile);
   }
 
-  .brand__mark--cross,
-  .site-header.is-compact .brand__mark--cross {
+  .brand__mark--cross {
     height: var(--layout-logo-height-mobile);
   }
 

@@ -276,7 +276,15 @@ const site = file(
     ),
     sourceLocale: C('localeCode'),
     features: obj(featureProps, [], { description: 'Switch optional parts of the site on or off.' }),
-    calendar: obj({ style: ENUM(['julian', 'revised-julian', 'gregorian'], 'Church calendar for feasts.'), showOldStyle: BOOL('Show the Old Style date (Julian only).', true) }, ['style']),
+    calendarStyle: ENUM(['old', 'new'], 'Church calendar: old = Julian (default), new = Revised Julian. Controls fixed feast dates and saint-of-the-day labels; movable Pascha feasts are the same in both.'),
+    calendar: obj(
+      {
+        style: ENUM(['old', 'new', 'julian', 'revised-julian', 'gregorian'], 'Legacy alias for calendarStyle (old/julian, new/revised-julian). Prefer top-level calendarStyle.'),
+        showOldStyle: BOOL('Show the civil date with Old Style when calendarStyle is old (default true).', true)
+      },
+      [],
+      { description: 'Optional calendar display extras. Prefer site.calendarStyle for the calendar choice.' }
+    ),
     contact: obj(
       {
         address: obj({ street: STR(), city: STR(), region: STR(), postalCode: STR(), country: STR() }, ['street', 'city']),

@@ -219,19 +219,22 @@ function hidePast(scope) {
 }
 hidePast();
 
+function civilWithOsText(iso, dateStyle) {
+  var civil = fmtDate(iso, dateStyle || 'weekdayLong');
+  var cal = SITE.calendar || {};
+  if (!isOldCalendar(cal.style || cal.key || 'old') || cal.showOldStyle === false) return civil;
+  var j = churchDate(iso, 'julian');
+  return t('calendar.civilWithOs', { civil: civil, os: fmtDate(toIso(j.y, j.m, j.d), 'dayMonth') });
+}
+
 /* Today and the feast of the day ([data-today], refreshed from calendar data). */
 $all('[data-today]').forEach(function (box) {
-  var style = (SITE.calendar || {}).style || 'gregorian';
+  var style = normalizeCalendarStyle((SITE.calendar || {}).style || (SITE.calendar || {}).key || 'old');
   var dateEl = box.querySelector('[data-today-date]');
   if (dateEl && dateEl.getAttribute('datetime') === TODAY) return;
   if (dateEl) {
-    dateEl.textContent = fmtDate(TODAY, 'weekdayLong');
+    dateEl.textContent = civilWithOsText(TODAY, 'weekdayLong');
     dateEl.setAttribute('datetime', TODAY);
-  }
-  var os = box.querySelector('[data-today-os]');
-  if (os && os.textContent) {
-    var j = churchDate(TODAY, 'julian');
-    os.textContent = t('calendar.oldStyle', { date: fmtDate(toIso(j.y, j.m, j.d), 'dayMonth') });
   }
   var today = feastsOn(TODAY, style, SITE.feasts)[0];
   var next = today ? null : nextFeast(TODAY, style, SITE.feasts, 90);
@@ -241,5 +244,5 @@ $all('[data-today]').forEach(function (box) {
   };
   set('[data-feast-label]', today ? t('calendar.feastToday') : next ? t('calendar.comingFeast') : '');
   set('[data-feast-title]', today ? today.title : next ? next.feast.title : '');
-  set('[data-feast-when]', next ? fmtDate(next.date, 'weekdayLong') : '');
+  set('[data-feast-when]', next ? civilWithOsText(next.date, 'weekdayLong') : '');
 });

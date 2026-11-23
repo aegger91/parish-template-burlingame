@@ -32,12 +32,11 @@ function today(ctx) {
   const next = feast ? null : nextFeast(iso, ctx.calendarStyle, ctx.content.calendar, 90);
   return html`<div class="hero__today" data-today>
     <p class="hero__date"><span class="hero__date-label">${ctx.t('calendar.today')}</span>
-      <time data-today-date datetime="${iso}">${ctx.formatDate(iso, 'weekdayLong')}</time>
-      <span class="hero__oldstyle" data-today-os>${ctx.oldStyleDate(iso)}</span></p>
+      <time data-today-date datetime="${iso}">${ctx.civilWithOs(iso, 'weekdayLong')}</time></p>
     <p class="hero__feast" data-feast>${cross('hero__feast-cross')}<span>
       <span class="hero__feast-label" data-feast-label>${feast ? ctx.t('calendar.feastToday') : next ? ctx.t('calendar.comingFeast') : ''}</span>
       <strong class="hero__feast-title" data-feast-title>${feast ? ctx.l(feast.title) : next ? ctx.l(next.feast.title) : ''}</strong>
-      <span class="hero__feast-when" data-feast-when>${next ? ctx.formatDate(next.date, 'weekdayLong') : ''}</span>
+      <span class="hero__feast-when" data-feast-when>${next ? ctx.civilWithOs(next.date, 'weekdayLong') : ''}</span>
     </span></p>
   </div>`;
 }
@@ -53,9 +52,25 @@ function nextServices(p, ctx) {
       ${list.map((e, i) => {
         const feast = feastFor(e, ctx);
         const note = ctx.l(e.note) || (feast && feast.rank !== 'saint' && feast.rank !== 'observance' ? ctx.l(feast.title) : '');
-        return html`<li${attrs({ 'data-date': e.date, hidden: spareHidden(i, limit) })}>
+        const label = serviceLabel(e, ctx);
+        const streamed = isStreamed(e, ctx);
+        return html`<li${attrs({
+          class: 'is-clickable',
+          'data-date': e.date,
+          'data-event': true,
+          'data-event-id': e.id,
+          'data-event-time': e.time || '',
+          'data-event-title': label,
+          'data-event-note': note || '',
+          'data-event-stream': streamed ? '1' : '',
+          'data-event-dur': e.durationMinutes || 90,
+          role: 'button',
+          tabindex: '0',
+          'aria-label': ctx.t('schedule.openDetails', { title: label }),
+          hidden: spareHidden(i, limit)
+        })}>
           <time datetime="${e.date}">${ctx.formatDate(e.date, 'short')}</time>
-          <span class="hero__next-what"><span class="hero__next-time">${e.time ? ctx.formatTime(e.time) : ''}</span> ${serviceLabel(e, ctx)}${isStreamed(e, ctx) ? html`<span class="stream-tag stream-tag--light" title="${ctx.t('live.streamed')}">${icon('live', 'stream-tag__icon')}<span class="visually-hidden">${ctx.t('live.streamed')}</span></span>` : ''}
+          <span class="hero__next-what"><span class="hero__next-time">${e.time ? ctx.formatTime(e.time) : ''}</span> ${label}${streamed ? html`<span class="stream-tag stream-tag--light" title="${ctx.t('live.streamed')}">${icon('live', 'stream-tag__icon')}<span class="visually-hidden">${ctx.t('live.streamed')}</span></span>` : ''}
           ${note ? html`<span class="hero__next-note">${note}</span>` : ''}</span>
         </li>`;
       })}

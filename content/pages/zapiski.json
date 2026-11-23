@@ -5,9 +5,9 @@
   "parent": "services",
   "order": 22,
   "requires": "commemorations",
-  "title": { "en": "Commemoration Notes and Candles", "ru": "Записки и свечи" },
+  "title": { "en": "Commemoration Names and Candles", "ru": "Записки и свечи" },
   "nav": {
-    "label": { "en": "Zapiski and Candles", "ru": "Записки и свечи" },
+    "label": { "en": "Commemoration names", "ru": "Записки и свечи" },
     "icon": "slip"
   },
   "summary": {
@@ -16,7 +16,7 @@
   },
   "seo": {
     "description": {
-      "en": "Sample page to send commemoration notes online.",
+      "en": "Sample page to send commemoration names online.",
       "ru": "Образец страницы для подачи записок онлайн."
     }
   },
@@ -25,7 +25,7 @@
       "id": "header",
       "type": "page-header",
       "eyebrow": { "en": "Services", "ru": "Богослужения" },
-      "title": { "en": "Commemoration Notes and Candles", "ru": "Записки и свечи" },
+      "title": { "en": "Commemoration Names and Candles", "ru": "Записки и свечи" },
       "accent": "Записки"
     },
     { "id": "notes", "type": "zapiski" }
