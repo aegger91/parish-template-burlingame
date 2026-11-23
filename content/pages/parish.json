@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "parish",
+  "slug": "parish",
+  "order": 10,
+  "title": { "en": "Our Parish", "ru": "Наш приход" },
+  "nav": {
+    "label": { "en": "Our Parish", "ru": "Наш приход" },
+    "overview": { "en": "About the parish", "ru": "О приходе" },
+    "icon": "church"
+  },
+  "summary": { "en": "About the parish.", "ru": "О приходе." },
+  "seo": {
+    "description": { "en": "Sample page about the parish.", "ru": "Образец страницы о приходе." }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Our Parish", "ru": "Наш приход" },
+      "title": { "en": "About the parish", "ru": "О приходе" },
+      "lede": { "en": "Sample text. One line.", "ru": "Образец текста. Одна строка." }
+    },
+    {
+      "id": "about",
+      "type": "rich-text",
+      "title": { "en": "About us", "ru": "О нас" },
+      "body": {
+        "en": "Sample text. One or two lines about the parish.",
+        "ru": "Образец текста. Одна-две строки о приходе."
+      },
+      "media": {
+        "src": "/assets/img/sample-exterior.jpg",
+        "alt": {
+          "en": "Sample image: the church at dusk",
+          "ru": "Образец изображения: храм в сумерках"
+        }
+      },
+      "enabled": true
+    },
+    {
+      "id": "more",
+      "type": "card-grid",
+      "title": { "en": "More about the parish", "ru": "Подробнее о приходе" },
+      "source": "children"
+    },
+    {
+      "id": "membership",
+      "type": "dues-table",
+      "eyebrow": { "en": "Membership", "ru": "Членство" },
+      "title": { "en": "Becoming a member", "ru": "Как стать членом прихода" },
+      "body": {
+        "en": "Sample text. One line about parish membership.",
+        "ru": "Образец текста. Одна строка о членстве в приходе."
+      }
+    }
+  ]
+}

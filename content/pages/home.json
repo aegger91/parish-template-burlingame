@@ -1,0 +1,187 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "home",
+  "slug": "",
+  "order": 0,
+  "title": { "en": "Home", "ru": "Главная" },
+  "seo": {
+    "description": {
+      "en": "Sample home page of the Orthodox parish website template.",
+      "ru": "Образец главной страницы шаблона сайта православного прихода."
+    }
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "eyebrow": {
+        "en": "Russian Orthodox Church Outside of Russia",
+        "ru": "Русская Православная Церковь Заграницей"
+      },
+      "title": { "en": "St. Example Orthodox Church", "ru": "Храм святого Примера" },
+      "accent": "Храмъ святаго Примѣра",
+      "text": {
+        "en": "Sample parish. One line of welcome.",
+        "ru": "Образец прихода. Одна строка приветствия."
+      },
+      "image": {
+        "src": "/assets/img/sample-hero.jpg",
+        "alt": {
+          "en": "Sample image: an Orthodox church",
+          "ru": "Образец изображения: православный храм"
+        },
+        "position": "50% 60%"
+      },
+      "actions": [
+        {
+          "label": { "en": "Service schedule", "ru": "Расписание служб" },
+          "page": "services"
+        },
+        {
+          "label": { "en": "Contact", "ru": "Контакты" },
+          "page": "contact"
+        }
+      ],
+      "shortcut": {
+        "label": { "en": "Submit a commemoration", "ru": "Подать записку" },
+        "page": "zapiski",
+        "icon": "slip"
+      },
+      "nextServices": {
+        "limit": 3,
+        "title": { "en": "Next services", "ru": "Ближайшие службы" }
+      }
+    },
+    {
+      "id": "welcome",
+      "type": "rich-text",
+      "eyebrow": { "en": "Welcome", "ru": "Добро пожаловать" },
+      "title": { "en": "About the parish", "ru": "О приходе" },
+      "body": {
+        "en": "Sample text. One or two lines about the parish.",
+        "ru": "Образец текста. Одна-две строки о приходе."
+      },
+      "media": {
+        "src": "/assets/img/sample-interior.jpg",
+        "alt": { "en": "Sample image: an iconostasis", "ru": "Образец изображения: иконостас" }
+      },
+      "actions": [
+        {
+          "label": { "en": "Read more", "ru": "Подробнее" },
+          "page": "parish"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "id": "ways",
+      "type": "card-grid",
+      "eyebrow": { "en": "From the candle desk", "ru": "Свечной ящик" },
+      "title": {
+        "en": "Prayer requests and the parish store",
+        "ru": "Требы, записки и церковная лавка"
+      },
+      "cards": [
+        {
+          "title": { "en": "Request a service", "ru": "Заказать требу" },
+          "text": {
+            "en": "Moleben, baptism, a house blessing and more.",
+            "ru": "Молебен, крещение, освящение дома и другое."
+          },
+          "icon": "censer",
+          "link": {
+            "label": { "en": "See the services", "ru": "Все требы" },
+            "page": "request-service"
+          }
+        },
+        {
+          "title": { "en": "Commemoration notes", "ru": "Записки" },
+          "text": {
+            "en": "Send names for health or repose, with a candle.",
+            "ru": "Подайте имена о здравии или об упокоении и поставьте свечу."
+          },
+          "icon": "slip",
+          "link": {
+            "label": { "en": "Write a note", "ru": "Написать записку" },
+            "page": "zapiski"
+          }
+        },
+        {
+          "title": { "en": "Parish store", "ru": "Церковная лавка" },
+          "text": {
+            "en": "Icons, candles, prayer ropes and books.",
+            "ru": "Иконы, свечи, четки и книги."
+          },
+          "icon": "icon-frame",
+          "link": {
+            "label": { "en": "Visit the store", "ru": "В лавку" },
+            "page": "store"
+          }
+        },
+        {
+          "title": { "en": "Get involved", "ru": "Участвовать" },
+          "text": {
+            "en": "Events, volunteering and parish needs.",
+            "ru": "События, помощь и нужды прихода."
+          },
+          "icon": "bell",
+          "link": {
+            "label": { "en": "See what is on", "ru": "Что происходит" },
+            "page": "get-involved"
+          }
+        }
+      ]
+    },
+    {
+      "id": "message",
+      "type": "quote",
+      "eyebrow": { "en": "From the rector", "ru": "Слово настоятеля" },
+      "text": {
+        "en": "Sample message. A short word of welcome from the priest goes here, two or three sentences at most.",
+        "ru": "Образец обращения. Здесь короткое приветствие священника, два или три предложения."
+      },
+      "cite": {
+        "en": "Archpriest John Sample, rector",
+        "ru": "Протоиерей Иоанн Примеров, настоятель"
+      },
+      "image": {
+        "src": "/assets/img/sample-portrait-1.jpg",
+        "alt": {
+          "en": "Archpriest John Sample (sample portrait)",
+          "ru": "Протоиерей Иоанн Примеров (образец портрета)"
+        }
+      }
+    },
+    {
+      "id": "news",
+      "type": "news-list",
+      "eyebrow": { "en": "Parish news", "ru": "Новости прихода" },
+      "title": { "en": "Latest news", "ru": "Последние новости" },
+      "limit": 3,
+      "actions": [
+        {
+          "label": { "en": "All news", "ru": "Все новости" },
+          "page": "news"
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "type": "orthodoxconnect-feed",
+      "eyebrow": { "en": "Get involved", "ru": "Участие" },
+      "title": { "en": "Coming up", "ru": "Скоро в приходе" },
+      "kinds": ["event", "volunteer"],
+      "limit": 3,
+      "actions": [
+        {
+          "label": { "en": "All events", "ru": "Все события" },
+          "page": "get-involved"
+        },
+        {
+          "label": { "en": "Volunteer and needs", "ru": "Помощь и нужды" },
+          "page": "volunteer"
+        }
+      ]
+    }
+  ]
+}

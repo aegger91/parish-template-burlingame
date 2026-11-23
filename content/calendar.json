@@ -1,0 +1,196 @@
+{
+  "$schema": "../schemas/calendar.schema.json",
+  "$comment": "Fixed feasts use the church calendar date (MM-DD). With site.calendar.style \"julian\" these are Old Style dates and the site shows them on the civil date. Movable feasts count days from Pascha. Ranks: great (the Twelve Great Feasts and Pascha), major, saint, observance.",
+  "fixed": [
+    {
+      "date": "01-01",
+      "rank": "major",
+      "title": {
+        "en": "Circumcision of the Lord; St. Basil the Great",
+        "ru": "Обрезание Господне; свт. Василий Великий"
+      }
+    },
+    {
+      "date": "01-06",
+      "rank": "great",
+      "title": { "en": "Theophany of the Lord", "ru": "Богоявление. Крещение Господне" }
+    },
+    {
+      "date": "01-30",
+      "rank": "saint",
+      "title": { "en": "The Three Holy Hierarchs", "ru": "Собор трех святителей" }
+    },
+    {
+      "date": "02-02",
+      "rank": "great",
+      "title": { "en": "Meeting of the Lord", "ru": "Сретение Господне" }
+    },
+    {
+      "date": "03-25",
+      "rank": "great",
+      "title": { "en": "Annunciation", "ru": "Благовещение Пресвятой Богородицы" }
+    },
+    {
+      "date": "04-23",
+      "rank": "saint",
+      "title": { "en": "Holy Great-Martyr George", "ru": "Вмч. Георгий Победоносец" }
+    },
+    {
+      "date": "06-19",
+      "rank": "saint",
+      "title": {
+        "en": "St. John of Shanghai and San Francisco",
+        "ru": "Свт. Иоанн Шанхайский и Сан-Францисский"
+      }
+    },
+    {
+      "date": "06-24",
+      "rank": "major",
+      "title": { "en": "Nativity of St. John the Baptist", "ru": "Рождество Иоанна Предтечи" }
+    },
+    {
+      "date": "06-29",
+      "rank": "major",
+      "title": { "en": "Holy Apostles Peter and Paul", "ru": "Святые апостолы Петр и Павел" }
+    },
+    {
+      "date": "08-06",
+      "rank": "great",
+      "title": { "en": "Transfiguration of the Lord", "ru": "Преображение Господне" }
+    },
+    {
+      "date": "08-15",
+      "rank": "great",
+      "title": { "en": "Dormition of the Theotokos", "ru": "Успение Пресвятой Богородицы" }
+    },
+    {
+      "date": "08-29",
+      "rank": "major",
+      "title": {
+        "en": "Beheading of St. John the Baptist",
+        "ru": "Усекновение главы Иоанна Предтечи"
+      }
+    },
+    {
+      "date": "09-01",
+      "rank": "observance",
+      "title": { "en": "Church New Year", "ru": "Церковное новолетие" }
+    },
+    {
+      "date": "09-08",
+      "rank": "great",
+      "title": { "en": "Nativity of the Theotokos", "ru": "Рождество Пресвятой Богородицы" }
+    },
+    {
+      "date": "09-14",
+      "rank": "great",
+      "title": { "en": "Elevation of the Holy Cross", "ru": "Воздвижение Креста Господня" }
+    },
+    {
+      "date": "10-01",
+      "rank": "major",
+      "title": { "en": "Protection of the Theotokos", "ru": "Покров Пресвятой Богородицы" }
+    },
+    {
+      "date": "11-08",
+      "rank": "saint",
+      "title": { "en": "Synaxis of the Archangel Michael", "ru": "Собор Архистратига Михаила" }
+    },
+    {
+      "date": "11-13",
+      "rank": "saint",
+      "title": { "en": "St. John Chrysostom", "ru": "Свт. Иоанн Златоуст" }
+    },
+    {
+      "date": "11-14",
+      "rank": "saint",
+      "title": { "en": "Holy Apostle Philip", "ru": "Апостол Филипп" }
+    },
+    {
+      "date": "11-15",
+      "rank": "observance",
+      "title": { "en": "The Nativity Fast begins", "ru": "Начало Рождественского поста" }
+    },
+    {
+      "date": "11-21",
+      "rank": "great",
+      "title": {
+        "en": "Entry of the Theotokos into the Temple",
+        "ru": "Введение во храм Пресвятой Богородицы"
+      }
+    },
+    {
+      "date": "11-30",
+      "rank": "saint",
+      "title": { "en": "Holy Apostle Andrew the First-Called", "ru": "Апостол Андрей Первозванный" }
+    },
+    {
+      "date": "12-06",
+      "rank": "major",
+      "title": { "en": "St. Nicholas the Wonderworker", "ru": "Свт. Николай Чудотворец" }
+    },
+    {
+      "date": "12-24",
+      "rank": "observance",
+      "title": { "en": "Nativity Eve", "ru": "Навечерие Рождества Христова" }
+    },
+    {
+      "date": "12-25",
+      "rank": "great",
+      "title": { "en": "Nativity of Christ", "ru": "Рождество Христово" }
+    }
+  ],
+  "movable": [
+    {
+      "offset": -48,
+      "rank": "observance",
+      "title": {
+        "en": "Clean Monday: Great Lent begins",
+        "ru": "Чистый понедельник: начало Великого поста"
+      }
+    },
+    {
+      "offset": -42,
+      "rank": "saint",
+      "title": { "en": "Sunday of Orthodoxy", "ru": "Торжество Православия" }
+    },
+    {
+      "offset": -7,
+      "rank": "great",
+      "title": { "en": "Entry of the Lord into Jerusalem", "ru": "Вход Господень в Иерусалим" }
+    },
+    {
+      "offset": -2,
+      "rank": "major",
+      "title": { "en": "Holy and Great Friday", "ru": "Великая Пятница" }
+    },
+    {
+      "offset": 0,
+      "rank": "great",
+      "title": { "en": "Holy Pascha", "ru": "Светлое Христово Воскресение. Пасха" }
+    },
+    {
+      "offset": 39,
+      "rank": "great",
+      "title": { "en": "Ascension of the Lord", "ru": "Вознесение Господне" }
+    },
+    {
+      "offset": 49,
+      "rank": "great",
+      "title": { "en": "Holy Pentecost", "ru": "День Святой Троицы. Пятидесятница" }
+    },
+    {
+      "offset": 56,
+      "rank": "saint",
+      "title": { "en": "All Saints", "ru": "Неделя всех святых" }
+    },
+    {
+      "offset": 63,
+      "rank": "saint",
+      "title": {
+        "en": "All Saints of Russia",
+        "ru": "Неделя всех святых, в земле Российской просиявших"
+      }
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "zapiski.schema.json",
+  "title": "Commemoration notes",
+  "description": "content/zapiski.json: commemoration notes (zapiski) and candles.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "maxNames": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Names per note."
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "enum": [
+              "health",
+              "repose"
+            ]
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "heading": {
+            "type": "string",
+            "description": "Heading on the note, e.g. \"О здра́вїи\"."
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "prefixes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "short": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "commemorations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "text": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "suggested": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Suggested donation."
+          },
+          "for": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "health",
+                "repose"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "suggested"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "candles": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "common.schema.json#/$defs/text"
+        },
+        "sizes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "label": {
+                "$ref": "common.schema.json#/$defs/text"
+              },
+              "price": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "price"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "donation": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "common.schema.json#/$defs/text"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hint": {
+      "$ref": "common.schema.json#/$defs/markdown"
+    },
+    "consent": {
+      "$ref": "common.schema.json#/$defs/text"
+    }
+  },
+  "required": [
+    "types",
+    "commemorations"
+  ],
+  "additionalProperties": false
+}

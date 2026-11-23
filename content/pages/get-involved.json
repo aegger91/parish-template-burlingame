@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "get-involved",
+  "slug": "get-involved",
+  "order": 40,
+  "requires": "getInvolved",
+  "title": { "en": "Get Involved", "ru": "Участие в жизни прихода" },
+  "nav": {
+    "label": { "en": "Get Involved", "ru": "Участие" },
+    "overview": { "en": "Events", "ru": "События" },
+    "icon": "bell"
+  },
+  "seo": {
+    "description": {
+      "en": "Sample events and ways to take part, from OrthodoxConnect.",
+      "ru": "Образец событий и способов участия из OrthodoxConnect."
+    }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Get Involved", "ru": "Участие" },
+      "title": { "en": "Events", "ru": "События" },
+      "lede": {
+        "en": "Sample events from OrthodoxConnect.",
+        "ru": "Образцы событий из OrthodoxConnect."
+      }
+    },
+    {
+      "id": "calendar",
+      "type": "schedule",
+      "source": "orthodoxconnect",
+      "view": "month",
+      "title": { "en": "Calendar", "ru": "Календарь" }
+    },
+    {
+      "id": "events",
+      "type": "orthodoxconnect-feed",
+      "title": { "en": "Upcoming events", "ru": "Ближайшие события" },
+      "kinds": ["event"],
+      "filters": true,
+      "appActions": ["createEvent"]
+    },
+    {
+      "id": "join",
+      "type": "orthodoxconnect-cta",
+      "title": {
+        "en": "Join the parish on OrthodoxConnect",
+        "ru": "Присоединяйтесь к приходу в OrthodoxConnect"
+      },
+      "text": {
+        "en": "See every event, sign up to help and get parish news on your phone.",
+        "ru": "Все события, запись на помощь и новости прихода в вашем телефоне."
+      }
+    }
+  ]
+}

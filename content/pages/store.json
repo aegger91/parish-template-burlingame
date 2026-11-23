@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "store",
+  "slug": "store",
+  "order": 50,
+  "requires": "store",
+  "title": { "en": "Parish Store", "ru": "Церковная лавка" },
+  "nav": {
+    "label": { "en": "Store", "ru": "Лавка" },
+    "icon": "icon-frame"
+  },
+  "seo": {
+    "description": {
+      "en": "Sample parish store: icons, candles, books and gifts.",
+      "ru": "Образец церковной лавки: иконы, свечи, книги и подарки."
+    }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Store", "ru": "Лавка" },
+      "title": { "en": "Parish Store", "ru": "Церковная лавка" },
+      "lede": { "en": "Sample products.", "ru": "Образцы товаров." }
+    },
+    { "id": "products", "type": "store" }
+  ]
+}

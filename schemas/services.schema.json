@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "services.schema.json",
+  "title": "Services",
+  "description": "content/services.json: the weekly pattern, the current season and the dated schedule.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "serviceTypes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "durationMinutes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "streamed": {
+            "type": "boolean",
+            "description": "Streamed by default."
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "standing": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "common.schema.json#/$defs/text"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "$ref": "common.schema.json#/$defs/text"
+              },
+              "text": {
+                "$ref": "common.schema.json#/$defs/text"
+              }
+            },
+            "required": [
+              "label",
+              "text"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "description": "The usual week, for the \"Every week\" list."
+    },
+    "season": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "title": {
+          "$ref": "common.schema.json#/$defs/text"
+        },
+        "accent": {
+          "type": "string"
+        },
+        "text": {
+          "$ref": "common.schema.json#/$defs/text"
+        },
+        "start": {
+          "$ref": "common.schema.json#/$defs/date"
+        },
+        "end": {
+          "$ref": "common.schema.json#/$defs/date"
+        }
+      },
+      "required": [
+        "title",
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "notices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "needsReview": {
+            "type": "string",
+            "description": "Note for editors. Never shown on the site."
+          },
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "text": {
+            "$ref": "common.schema.json#/$defs/markdown"
+          },
+          "published": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false,
+        "patternProperties": {
+          "^[a-z]{2,3}_locked$": {
+            "type": "boolean",
+            "description": "Marks the translations in this object as approved by a person."
+          }
+        }
+      }
+    },
+    "upcoming": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "needsReview": {
+            "type": "string",
+            "description": "Note for editors. Never shown on the site."
+          },
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "date": {
+            "$ref": "common.schema.json#/$defs/date"
+          },
+          "time": {
+            "$ref": "common.schema.json#/$defs/time"
+          },
+          "serviceType": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "Name, if not the service type name."
+          },
+          "note": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "Feast or occasion."
+          },
+          "streamed": {
+            "type": "boolean"
+          },
+          "location": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "serviceType"
+        ],
+        "additionalProperties": false,
+        "patternProperties": {
+          "^[a-z]{2,3}_locked$": {
+            "type": "boolean",
+            "description": "Marks the translations in this object as approved by a person."
+          }
+        }
+      },
+      "description": "Dated services, in date order. Past ones hide on their own."
+    }
+  },
+  "required": [
+    "serviceTypes",
+    "upcoming"
+  ],
+  "additionalProperties": false
+}

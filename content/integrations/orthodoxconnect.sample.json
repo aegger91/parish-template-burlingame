@@ -1,0 +1,222 @@
+{
+  "$schema": "../../schemas/orthodoxconnect-feed.schema.json",
+  "version": 2,
+  "isSample": true,
+  "source": "Sample items showing the OrthodoxConnect feed. Not real parish events.",
+  "parishId": "sample-parish",
+  "generatedAt": "2026-11-23T00:00:00Z",
+  "categories": [
+    {
+      "id": "worship",
+      "label": { "en": "Worship", "ru": "Богослужение" }
+    },
+    {
+      "id": "fellowship",
+      "label": { "en": "Fellowship", "ru": "Общение" }
+    },
+    {
+      "id": "learning",
+      "label": { "en": "Learning", "ru": "Просвещение" }
+    },
+    {
+      "id": "service",
+      "label": { "en": "Service", "ru": "Милосердие" }
+    },
+    {
+      "id": "care",
+      "label": { "en": "Care of the church", "ru": "Забота о храме" }
+    }
+  ],
+  "items": [
+    {
+      "status": "open",
+      "id": "ev-akathist-st-nicholas",
+      "kind": "event",
+      "category": "worship",
+      "title": { "en": "Akathist to St. Nicholas (sample)", "ru": "Акафист свт. Николаю (образец)" },
+      "summary": {
+        "en": "Sung by the whole parish, with tea afterwards.",
+        "ru": "Поем всем приходом, после чаепитие."
+      },
+      "date": "2026-12-16",
+      "time": "18:30",
+      "endTime": "19:30",
+      "location": { "en": "Church", "ru": "Храм" },
+      "capacity": 0,
+      "signups": 0,
+      "organizer": { "en": "Father John", "ru": "О. Иоанн" }
+    },
+    {
+      "status": "open",
+      "id": "ev-nativity-concert",
+      "kind": "event",
+      "category": "fellowship",
+      "title": {
+        "en": "Nativity carols and supper (sample)",
+        "ru": "Рождественские колядки и ужин (образец)"
+      },
+      "summary": {
+        "en": "Carols by the choir and the children, then a shared supper.",
+        "ru": "Колядки хора и детей, затем общий ужин."
+      },
+      "date": "2027-01-10",
+      "time": "13:00",
+      "endTime": "15:30",
+      "location": { "en": "Parish hall", "ru": "Приходской зал" },
+      "capacity": 80,
+      "signups": 46,
+      "organizer": { "en": "Sisterhood", "ru": "Сестричество" }
+    },
+    {
+      "status": "open",
+      "id": "ev-bible-study",
+      "kind": "event",
+      "category": "learning",
+      "title": {
+        "en": "Bible study: the Gospel of Luke (sample)",
+        "ru": "Изучение Евангелия от Луки (образец)"
+      },
+      "summary": {
+        "en": "Six evenings with the priest. Bring a Bible.",
+        "ru": "Шесть вечеров со священником. Возьмите с собой Библию."
+      },
+      "date": "2026-12-02",
+      "time": "19:00",
+      "endTime": "20:15",
+      "location": { "en": "Parish library", "ru": "Приходская библиотека" },
+      "capacity": 20,
+      "signups": 14,
+      "organizer": { "en": "Deacon Peter", "ru": "Диакон Петр" }
+    },
+    {
+      "status": "full",
+      "id": "ev-theophany-picnic",
+      "kind": "event",
+      "category": "fellowship",
+      "title": {
+        "en": "Theophany house blessings sign-up (sample)",
+        "ru": "Запись на освящение домов после Крещения (образец)"
+      },
+      "summary": {
+        "en": "Pick a day for the priest to bless your home with Theophany water.",
+        "ru": "Выберите день, когда священник освятит ваш дом крещенской водой."
+      },
+      "date": "2027-01-20",
+      "time": "10:00",
+      "endTime": "18:00",
+      "location": { "en": "Your home", "ru": "У вас дома" },
+      "capacity": 30,
+      "signups": 30,
+      "organizer": { "en": "Parish office", "ru": "Канцелярия" }
+    },
+    {
+      "status": "open",
+      "id": "vol-coffee-hour",
+      "kind": "volunteer",
+      "category": "fellowship",
+      "title": { "en": "Coffee hour hosts (sample)", "ru": "Дежурство на трапезе (образец)" },
+      "summary": {
+        "en": "Set out food and coffee after the Liturgy, then tidy up.",
+        "ru": "Накрыть стол после литургии и прибрать после."
+      },
+      "date": "2026-12-06",
+      "time": "11:30",
+      "location": { "en": "Parish hall", "ru": "Приходской зал" },
+      "capacity": 4,
+      "signups": 1,
+      "organizer": { "en": "Sisterhood", "ru": "Сестричество" }
+    },
+    {
+      "status": "open",
+      "id": "vol-church-cleaning",
+      "kind": "volunteer",
+      "category": "care",
+      "title": {
+        "en": "Church cleaning before the Nativity (sample)",
+        "ru": "Уборка храма перед Рождеством (образец)"
+      },
+      "summary": {
+        "en": "Polish the brass, wash the floors, change the cloths.",
+        "ru": "Почистить подсвечники, вымыть полы, сменить облачения."
+      },
+      "date": "2027-01-02",
+      "time": "10:00",
+      "endTime": "13:00",
+      "location": { "en": "Church", "ru": "Храм" },
+      "capacity": 12,
+      "signups": 5,
+      "organizer": { "en": "Church warden", "ru": "Староста" }
+    },
+    {
+      "status": "open",
+      "id": "vol-choir",
+      "kind": "volunteer",
+      "category": "worship",
+      "title": { "en": "Sing in the choir (sample)", "ru": "Петь в хоре (образец)" },
+      "summary": {
+        "en": "Rehearsals on Thursdays. No audition, just a willing heart.",
+        "ru": "Спевки по четвергам. Прослушивания нет, нужно только желание."
+      },
+      "date": "2026-12-03",
+      "time": "19:00",
+      "location": { "en": "Choir loft", "ru": "Клирос" },
+      "capacity": 6,
+      "signups": 2,
+      "organizer": { "en": "Choir director", "ru": "Регент" }
+    },
+    {
+      "status": "open",
+      "id": "need-food-drive",
+      "kind": "need",
+      "category": "service",
+      "title": {
+        "en": "Nativity food drive (sample)",
+        "ru": "Рождественский сбор продуктов (образец)"
+      },
+      "summary": {
+        "en": "Canned goods and rice for families in town. Bring them to the hall.",
+        "ru": "Консервы и крупы для нуждающихся семей. Приносите в зал."
+      },
+      "date": "2026-12-20",
+      "location": { "en": "Parish hall", "ru": "Приходской зал" },
+      "capacity": 120,
+      "signups": 74,
+      "unit": { "en": "bags", "ru": "пакетов" },
+      "organizer": { "en": "Outreach team", "ru": "Служба милосердия" }
+    },
+    {
+      "status": "open",
+      "id": "need-meals",
+      "kind": "need",
+      "category": "care",
+      "title": {
+        "en": "Meals for a new family (sample)",
+        "ru": "Обеды для молодой семьи (образец)"
+      },
+      "summary": {
+        "en": "Bring a dinner during the first two weeks after the birth.",
+        "ru": "Принести ужин в первые две недели после рождения ребенка."
+      },
+      "date": "2026-12-08",
+      "capacity": 14,
+      "signups": 9,
+      "unit": { "en": "meals", "ru": "обедов" },
+      "organizer": { "en": "Sisterhood", "ru": "Сестричество" }
+    },
+    {
+      "status": "open",
+      "id": "need-prosphora",
+      "kind": "need",
+      "category": "worship",
+      "title": { "en": "Prosphora bakers (sample)", "ru": "Пекари просфор (образец)" },
+      "summary": {
+        "en": "Bake prosphora once a month. We will teach you.",
+        "ru": "Печь просфоры раз в месяц. Мы научим."
+      },
+      "capacity": 6,
+      "signups": 4,
+      "unit": { "en": "bakers", "ru": "пекарей" },
+      "organizer": { "en": "Father John", "ru": "О. Иоанн" }
+    }
+  ]
+}

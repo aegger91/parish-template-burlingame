@@ -1,0 +1,118 @@
+{
+  "$schema": "../schemas/news.schema.json",
+  "items": [
+    {
+      "id": "sample-nativity-schedule",
+      "date": "2026-11-20",
+      "category": "announcements",
+      "featured": true,
+      "title": {
+        "en": "Sample news: Nativity services",
+        "ru": "Образец новости: службы на Рождество"
+      },
+      "summary": {
+        "en": "Vigil on January 6 at 6 pm and Liturgy on January 7 at 9:30 am.",
+        "ru": "Всенощное бдение 6 января в 18:00 и литургия 7 января в 9:30."
+      },
+      "body": {
+        "en": "Sample announcement. The full schedule is on the Services page, and both services are streamed.",
+        "ru": "Образец объявления. Полное расписание на странице «Богослужения», обе службы транслируются."
+      },
+      "image": {
+        "src": "/assets/img/sample-news-2.jpg",
+        "alt": { "en": "Sample image: a chalice", "ru": "Образец изображения: чаша" }
+      },
+      "links": [
+        {
+          "label": { "en": "See the schedule", "ru": "Расписание" },
+          "page": "services"
+        }
+      ]
+    },
+    {
+      "id": "sample-feast-day",
+      "date": "2026-11-01",
+      "featured": true,
+      "title": {
+        "en": "Sample news: parish feast day",
+        "ru": "Образец новости: престольный праздник"
+      },
+      "summary": {
+        "en": "A featured news item with a photo, text and a gallery.",
+        "ru": "Избранная новость с фотографией, текстом и галереей."
+      },
+      "body": { "en": "Sample text. One or two lines.", "ru": "Образец текста. Одна-две строки." },
+      "image": {
+        "src": "/assets/img/sample-news-1.jpg",
+        "alt": {
+          "en": "Sample image: an Orthodox church",
+          "ru": "Образец изображения: православный храм"
+        }
+      },
+      "gallery": "parish-life",
+      "category": "parish"
+    },
+    {
+      "id": "sample-newsletter",
+      "date": "2026-10-15",
+      "featured": true,
+      "title": {
+        "en": "Sample news: the autumn newsletter is out",
+        "ru": "Образец новости: вышел осенний бюллетень"
+      },
+      "summary": {
+        "en": "A news item that links to a document.",
+        "ru": "Новость со ссылкой на документ."
+      },
+      "body": {
+        "en": "Sample text. Read the newsletter using the link below.",
+        "ru": "Образец текста. Бюллетень можно прочитать по ссылке ниже."
+      },
+      "image": {
+        "src": "/assets/img/sample-news-2.jpg",
+        "alt": { "en": "Sample image: a chalice", "ru": "Образец изображения: потир" }
+      },
+      "links": [
+        {
+          "label": { "en": "Read the newsletter (PDF)", "ru": "Читать бюллетень (PDF)" },
+          "document": "newsletter-sample"
+        }
+      ],
+      "category": "announcements"
+    },
+    {
+      "id": "sample-volunteers",
+      "date": "2026-09-20",
+      "title": { "en": "Sample news: volunteers wanted", "ru": "Образец новости: нужны помощники" },
+      "summary": {
+        "en": "A short news item without a photo.",
+        "ru": "Короткая новость без фотографии."
+      },
+      "body": {
+        "en": "Sample text. Short items work well for announcements.",
+        "ru": "Образец текста. Короткие записи удобны для объявлений."
+      },
+      "links": [
+        {
+          "label": { "en": "Contact the parish", "ru": "Связаться с приходом" },
+          "page": "volunteer"
+        }
+      ],
+      "category": "outreach"
+    }
+  ],
+  "categories": [
+    {
+      "id": "parish",
+      "label": { "en": "Parish life", "ru": "Жизнь прихода" }
+    },
+    {
+      "id": "announcements",
+      "label": { "en": "Announcements", "ru": "Объявления" }
+    },
+    {
+      "id": "outreach",
+      "label": { "en": "Outreach", "ru": "Милосердие" }
+    }
+  ]
+}

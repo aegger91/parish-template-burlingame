@@ -1,0 +1,71 @@
+{
+  "$schema": "../schemas/documents.schema.json",
+  "groups": [
+    {
+      "id": "schedule",
+      "title": { "en": "Monthly service schedules", "ru": "Расписание богослужений на месяц" }
+    },
+    {
+      "id": "parish",
+      "title": { "en": "Parish documents", "ru": "Документы прихода" }
+    },
+    {
+      "id": "newsletter",
+      "title": { "en": "Newsletters", "ru": "Бюллетени" }
+    },
+    {
+      "id": "prayers",
+      "title": { "en": "Prayers", "ru": "Молитвы" }
+    }
+  ],
+  "documents": [
+    {
+      "id": "schedule-en",
+      "group": "schedule",
+      "title": {
+        "en": "Monthly schedule in English (sample)",
+        "ru": "Расписание на месяц на английском (образец)"
+      },
+      "url": "/assets/docs/sample-schedule-en.pdf",
+      "lang": "en"
+    },
+    {
+      "id": "schedule-ru",
+      "group": "schedule",
+      "title": {
+        "en": "Monthly schedule in Russian (sample)",
+        "ru": "Расписание на месяц на русском (образец)"
+      },
+      "url": "/assets/docs/sample-schedule-ru.pdf",
+      "lang": "ru"
+    },
+    {
+      "id": "bylaws",
+      "group": "parish",
+      "title": { "en": "Parish by-laws (sample)", "ru": "Устав прихода (образец)" },
+      "url": "/assets/docs/sample-bylaws.pdf"
+    },
+    {
+      "id": "pledge-form",
+      "group": "parish",
+      "title": {
+        "en": "Stewardship pledge form (sample)",
+        "ru": "Бланк обещания пожертвований (образец)"
+      },
+      "url": "/assets/docs/sample-pledge-form.pdf"
+    },
+    {
+      "id": "newsletter-sample",
+      "group": "newsletter",
+      "title": { "en": "Autumn newsletter (sample)", "ru": "Осенний бюллетень (образец)" },
+      "url": "/assets/docs/sample-newsletter.pdf",
+      "year": 2026
+    },
+    {
+      "id": "prayers-pdf",
+      "group": "prayers",
+      "title": { "en": "Prayers (sample)", "ru": "Молитвы (образец)" },
+      "url": "/assets/docs/sample-prayers.pdf"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "donate",
+  "slug": "donate",
+  "order": 60,
+  "nav": { "show": false },
+  "title": { "en": "Donate", "ru": "Пожертвовать" },
+  "seo": {
+    "description": { "en": "Sample donation page.", "ru": "Образец страницы пожертвований." }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Support the parish", "ru": "Поддержать приход" },
+      "title": { "en": "Donate", "ru": "Пожертвовать" },
+      "lede": {
+        "en": "The parish lives on the gifts of its people. Thank you.",
+        "ru": "Приход живет пожертвованиями прихожан. Спаси Господи."
+      }
+    },
+    {
+      "id": "give",
+      "type": "donate-form",
+      "eyebrow": { "en": "Give online", "ru": "Онлайн" },
+      "title": { "en": "Make a gift", "ru": "Сделать пожертвование" },
+      "intro": {
+        "en": "Choose an amount and a fund. A monthly gift helps the parish council plan the year.",
+        "ru": "Выберите сумму и назначение. Ежемесячное пожертвование помогает приходскому совету планировать год."
+      }
+    },
+    {
+      "id": "other-ways",
+      "type": "fact-list",
+      "title": { "en": "Other ways to give", "ru": "Другие способы" },
+      "facts": [
+        {
+          "label": { "en": "At church", "ru": "В храме" },
+          "value": {
+            "en": "Use the box by the candle desk.",
+            "ru": "Опустите в ящик у свечной лавки."
+          }
+        },
+        {
+          "label": { "en": "By check", "ru": "Чеком" },
+          "value": {
+            "en": "Payable to St. Example Orthodox Church, mailed to the parish address.",
+            "ru": "На имя St. Example Orthodox Church, по почте на адрес прихода."
+          }
+        },
+        {
+          "label": { "en": "Dues", "ru": "Взносы" },
+          "value": {
+            "en": "Members can pay dues here by choosing Membership dues.",
+            "ru": "Члены прихода могут внести взносы здесь, выбрав «Членские взносы»."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ui.schema.json",
+  "title": "Interface strings",
+  "description": "content/ui.json: short interface labels used by components (buttons, accessibility labels, empty states). Keys are dotted names referenced from code with ctx.t(\"group.key\"). Add a locale by adding its key to every entry.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "strings": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*)+$"
+      },
+      "additionalProperties": {
+        "$ref": "common.schema.json#/$defs/localized"
+      }
+    }
+  },
+  "required": [
+    "strings"
+  ],
+  "additionalProperties": false
+}

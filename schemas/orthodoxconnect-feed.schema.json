@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orthodoxconnect-feed.schema.json",
+  "title": "OrthodoxConnect feed",
+  "description": "What the OrthodoxConnect app provides for a parish: events, volunteer opportunities and needs. content/integrations/orthodoxconnect.sample.json is a labeled sample.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "version": {
+      "const": 2
+    },
+    "isSample": {
+      "type": "boolean"
+    },
+    "source": {
+      "type": "string"
+    },
+    "parishId": {
+      "type": "string"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "event",
+              "volunteer",
+              "need"
+            ]
+          },
+          "status": {
+            "enum": [
+              "open",
+              "full",
+              "cancelled"
+            ]
+          },
+          "category": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "summary": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "date": {
+            "$ref": "common.schema.json#/$defs/date"
+          },
+          "time": {
+            "$ref": "common.schema.json#/$defs/time"
+          },
+          "endTime": {
+            "$ref": "common.schema.json#/$defs/time"
+          },
+          "location": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "organizer": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "capacity": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Places or items wanted. 0 for no limit."
+          },
+          "signups": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "unit": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "What is counted, e.g. \"meals\"."
+          },
+          "url": {
+            "$ref": "common.schema.json#/$defs/url"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "title"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "version",
+    "items"
+  ],
+  "additionalProperties": false
+}

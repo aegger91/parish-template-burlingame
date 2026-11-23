@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "people.schema.json",
+  "title": "People",
+  "description": "content/people.json: clergy, parish council, ministry leaders and other contacts. Sections select people by role group or by id.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "people": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "One person. A person can hold several roles (e.g. rector and school director).",
+        "allOf": [
+          {
+            "$ref": "common.schema.json#/$defs/editorial"
+          }
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "photo": {
+            "$ref": "common.schema.json#/$defs/image"
+          },
+          "email": {
+            "$ref": "common.schema.json#/$defs/email"
+          },
+          "phone": {
+            "$ref": "common.schema.json#/$defs/phone"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "allOf": [
+                {
+                  "$ref": "common.schema.json#/$defs/editorial"
+                }
+              ],
+              "properties": {
+                "group": {
+                  "type": "string",
+                  "description": "Grouping key used by people-list sections, e.g. \"clergy\", \"council\", \"school\", \"sisterhood\", \"choir\"."
+                },
+                "title": {
+                  "$ref": "common.schema.json#/$defs/text"
+                },
+                "order": {
+                  "type": "integer",
+                  "description": "Sort order within the group (ascending)."
+                },
+                "name": {
+                  "$ref": "common.schema.json#/$defs/text",
+                  "description": "Overrides the person name for this role (e.g. with title or rank)."
+                },
+                "email": {
+                  "anyOf": [
+                    {
+                      "$ref": "common.schema.json#/$defs/email"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Overrides the person email for this role; null hides it."
+                },
+                "phone": {
+                  "$ref": "common.schema.json#/$defs/phone"
+                },
+                "note": {
+                  "$ref": "common.schema.json#/$defs/text"
+                },
+                "link": {
+                  "$ref": "common.schema.json#/$defs/link"
+                }
+              },
+              "required": [
+                "group",
+                "title"
+              ],
+              "unevaluatedProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "roles"
+        ],
+        "unevaluatedProperties": false
+      }
+    }
+  },
+  "required": [
+    "people"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,388 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "title": "Shared definitions",
+  "description": "Building blocks referenced by every content schema: localized text, links, buttons, images and editorial flags.",
+  "$defs": {
+    "id": {
+      "description": "Stable identifier. Lowercase letters, digits and hyphens. Never change an id once published: pages, menus and the builder reference items by id.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "localeCode": {
+      "description": "BCP 47 language code, e.g. \"en\", \"ru\", \"sr\", \"ka\".",
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$"
+    },
+    "localized": {
+      "description": "Localized string: one key per locale code. Missing or empty locales fall back to site.sourceLocale when rendering.",
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "$ref": "#/$defs/localeCode"
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "text": {
+      "description": "Either a localized object or a plain string that is the same in every locale (names, Church Slavonic texts, numbers).",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/$defs/localized"
+        }
+      ]
+    },
+    "markdown": {
+      "description": "Like `text`, but rendered as Markdown (paragraphs, **bold**, _italic_, links, lists).",
+      "$ref": "#/$defs/text"
+    },
+    "date": {
+      "description": "Calendar date, YYYY-MM-DD, in the parish time zone (site.timezone).",
+      "type": "string",
+      "format": "date"
+    },
+    "time": {
+      "description": "24-hour local time, HH:MM.",
+      "type": "string",
+      "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+    },
+    "url": {
+      "description": "Absolute http(s) URL.",
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "path": {
+      "description": "Site-relative path starting with \"/\". Paths under /assets, /logo, /fonts and /files are copied from public/; other paths are prefixed with the current locale.",
+      "type": "string",
+      "pattern": "^/"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "object",
+      "properties": {
+        "display": {
+          "type": "string",
+          "description": "As printed, e.g. \"(650) 430-9805\"."
+        },
+        "e164": {
+          "type": "string",
+          "pattern": "^\\+[1-9][0-9]{6,14}$",
+          "description": "Dialable form for tel: links, e.g. \"+16504309805\"."
+        }
+      },
+      "required": [
+        "display"
+      ],
+      "additionalProperties": false
+    },
+    "editorial": {
+      "description": "Editorial metadata allowed on any object. `needsReview` is a note for editors (never rendered). `<locale>_locked: true` (e.g. `ru_locked`) marks every localized value inside the object as human-approved for that locale, so scripts/translate.mjs never overwrites or fills it.",
+      "type": "object",
+      "properties": {
+        "needsReview": {
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "^[a-z]{2,3}_locked$": {
+          "type": "boolean"
+        }
+      }
+    },
+    "linkTarget": {
+      "description": "Where a link points. Use exactly one of page (+ optional anchor), anchor (same page), href, document, email or phone.",
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/$defs/id",
+          "description": "Page id from content/pages."
+        },
+        "anchor": {
+          "$ref": "#/$defs/id",
+          "description": "Section id on the target page (or on the current page when `page` is omitted)."
+        },
+        "href": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/url"
+            },
+            {
+              "$ref": "#/$defs/path"
+            },
+            {
+              "type": "string",
+              "pattern": "^(mailto:|tel:)"
+            }
+          ]
+        },
+        "document": {
+          "$ref": "#/$defs/id",
+          "description": "Document id from content/documents.json."
+        },
+        "email": {
+          "$ref": "#/$defs/email"
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "^\\+[1-9][0-9]{6,14}$"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "page"
+          ]
+        },
+        {
+          "required": [
+            "anchor"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "page"
+                ]
+              },
+              {
+                "required": [
+                  "href"
+                ]
+              },
+              {
+                "required": [
+                  "document"
+                ]
+              },
+              {
+                "required": [
+                  "email"
+                ]
+              },
+              {
+                "required": [
+                  "phone"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "required": [
+            "href"
+          ]
+        },
+        {
+          "required": [
+            "document"
+          ]
+        },
+        {
+          "required": [
+            "email"
+          ]
+        },
+        {
+          "required": [
+            "phone"
+          ]
+        }
+      ]
+    },
+    "link": {
+      "description": "A link with an optional label.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/linkTarget"
+        },
+        {
+          "$ref": "#/$defs/editorial"
+        }
+      ],
+      "properties": {
+        "label": {
+          "$ref": "#/$defs/text"
+        },
+        "icon": {
+          "$ref": "#/$defs/iconName"
+        },
+        "page": true,
+        "anchor": true,
+        "href": true,
+        "document": true,
+        "email": true,
+        "phone": true,
+        "subject": {
+          "$ref": "#/$defs/text",
+          "description": "Email subject line (with `email`)."
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "action": {
+      "description": "A button.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/linkTarget"
+        },
+        {
+          "$ref": "#/$defs/editorial"
+        }
+      ],
+      "properties": {
+        "label": {
+          "$ref": "#/$defs/text"
+        },
+        "style": {
+          "enum": [
+            "primary",
+            "secondary",
+            "accent",
+            "light",
+            "ghost",
+            "link"
+          ],
+          "default": "primary"
+        },
+        "icon": {
+          "$ref": "#/$defs/iconName"
+        },
+        "page": true,
+        "anchor": true,
+        "href": true,
+        "document": true,
+        "email": true,
+        "phone": true,
+        "subject": {
+          "$ref": "#/$defs/text",
+          "description": "Email subject line (with `email`)."
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "unevaluatedProperties": false
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/action"
+      }
+    },
+    "iconName": {
+      "description": "Icon from the built-in sprite (SPRITE in src/components/_primitives.mjs).",
+      "enum": [
+        "cross",
+        "arch",
+        "arrow",
+        "external",
+        "doc",
+        "audio",
+        "phone",
+        "mail",
+        "pin",
+        "play",
+        "chevron",
+        "clock",
+        "youtube",
+        "facebook",
+        "menu",
+        "close",
+        "calendar",
+        "globe",
+        "search",
+        "check",
+        "live",
+        "pause",
+        "cart",
+        "plus",
+        "minus",
+        "trash",
+        "user",
+        "church",
+        "candle",
+        "chalice",
+        "censer",
+        "bell",
+        "gospel",
+        "prayer-rope",
+        "icon-frame",
+        "crowns",
+        "font",
+        "oil",
+        "slip",
+        "house"
+      ]
+    },
+    "image": {
+      "description": "Image from public/. Width and height are read from the file at build time, so they are optional.",
+      "type": "object",
+      "properties": {
+        "src": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/path"
+            },
+            {
+              "$ref": "#/$defs/url"
+            }
+          ]
+        },
+        "alt": {
+          "$ref": "#/$defs/text",
+          "description": "Describe the picture. Use an empty string only for purely decorative images."
+        },
+        "caption": {
+          "$ref": "#/$defs/text"
+        },
+        "position": {
+          "type": "string",
+          "description": "CSS object-position, e.g. \"50% 30%\"."
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "src",
+        "alt"
+      ],
+      "additionalProperties": false
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/text",
+          "description": "Overrides the <title> (the site name is appended)."
+        },
+        "description": {
+          "$ref": "#/$defs/text"
+        },
+        "image": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/path"
+            },
+            {
+              "$ref": "#/$defs/url"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

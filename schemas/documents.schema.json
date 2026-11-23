@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "documents.schema.json",
+  "title": "Documents",
+  "description": "content/documents.json: downloadable files (schedules, newsletters, by-laws). Large files can stay on their original host: `url` may be absolute.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$ref": "common.schema.json#/$defs/id"
+                },
+                "title": {
+                  "$ref": "common.schema.json#/$defs/text"
+                }
+              },
+              "required": [
+                "id",
+                "title"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "common.schema.json#/$defs/editorial"
+          }
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "group": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "groups id."
+          },
+          "category": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Category id within the group."
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "titleLang": {
+            "$ref": "common.schema.json#/$defs/localeCode",
+            "description": "Language of a plain-string title, for the lang attribute."
+          },
+          "url": {
+            "anyOf": [
+              {
+                "$ref": "common.schema.json#/$defs/url"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/path"
+              }
+            ]
+          },
+          "lang": {
+            "$ref": "common.schema.json#/$defs/localeCode",
+            "description": "Language of the document itself (shown as a badge)."
+          },
+          "note": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "year": {
+            "type": "integer"
+          },
+          "volume": {
+            "type": "integer"
+          },
+          "number": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "group",
+          "title",
+          "url"
+        ],
+        "unevaluatedProperties": false
+      }
+    }
+  },
+  "required": [
+    "groups",
+    "documents"
+  ],
+  "additionalProperties": false
+}

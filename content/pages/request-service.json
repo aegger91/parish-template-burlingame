@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "request-service",
+  "slug": "request",
+  "parent": "services",
+  "order": 21,
+  "requires": "serviceRequests",
+  "title": { "en": "Request a Service", "ru": "Заказать требу" },
+  "nav": { "icon": "censer" },
+  "summary": {
+    "en": "Moleben, baptism, a wedding, a house blessing and more.",
+    "ru": "Молебен, крещение, венчание, освящение дома и другое."
+  },
+  "seo": {
+    "description": {
+      "en": "Sample page to request a service from the priest.",
+      "ru": "Образец страницы для заказа треб."
+    }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Services", "ru": "Богослужения" },
+      "title": { "en": "Request a Service", "ru": "Заказать требу" },
+      "lede": {
+        "en": "Choose a service and send a request.",
+        "ru": "Выберите требу и отправьте заявку."
+      }
+    },
+    { "id": "services", "type": "request-services" }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "history",
+  "slug": "history",
+  "parent": "parish",
+  "order": 12,
+  "title": { "en": "History", "ru": "История" },
+  "nav": { "icon": "gospel" },
+  "summary": { "en": "Sample dates.", "ru": "Образцы дат." },
+  "cardImage": {
+    "src": "/assets/img/sample-history-1.jpg",
+    "alt": { "en": "Sample image: an old church", "ru": "Образец изображения: старый храм" }
+  },
+  "seo": {
+    "description": { "en": "Sample history page.", "ru": "Образец страницы истории." }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Our Parish", "ru": "Наш приход" },
+      "title": { "en": "Parish history", "ru": "История прихода" },
+      "lede": { "en": "Sample dates and events.", "ru": "Образцы дат и событий." }
+    },
+    {
+      "id": "timeline",
+      "type": "timeline",
+      "items": [
+        {
+          "year": "1950",
+          "title": { "en": "First services (sample)", "ru": "Первые службы (образец)" },
+          "text": {
+            "en": "Sample text. A few families gather for services in a rented hall.",
+            "ru": "Образец текста. Несколько семей собираются на службы в арендованном зале."
+          }
+        },
+        {
+          "year": "1962",
+          "title": { "en": "The church is built (sample)", "ru": "Построен храм (образец)" },
+          "text": {
+            "en": "Sample text. The parish buys land and builds the church.",
+            "ru": "Образец текста. Приход покупает землю и строит храм."
+          },
+          "image": {
+            "src": "/assets/img/sample-history-1.jpg",
+            "alt": { "en": "Sample image: an old church", "ru": "Образец изображения: старый храм" }
+          }
+        },
+        {
+          "year": "1988",
+          "title": {
+            "en": "Millennium of the Baptism of Rus (sample)",
+            "ru": "Тысячелетие Крещения Руси (образец)"
+          },
+          "text": {
+            "en": "Sample text. A new iconostasis is installed for the anniversary.",
+            "ru": "Образец текста. К юбилею установлен новый иконостас."
+          },
+          "image": {
+            "src": "/assets/img/sample-history-2.jpg",
+            "alt": { "en": "Sample image: an iconostasis", "ru": "Образец изображения: иконостас" }
+          }
+        },
+        {
+          "year": "2007",
+          "title": {
+            "en": "Reunion within the Russian Church (sample)",
+            "ru": "Воссоединение Русской Церкви (образец)"
+          },
+          "text": {
+            "en": "Sample text. The parish celebrates the Act of Canonical Communion.",
+            "ru": "Образец текста. Приход отмечает подписание Акта о каноническом общении."
+          }
+        },
+        {
+          "year": "2026",
+          "title": { "en": "Today (sample)", "ru": "Сегодня (образец)" },
+          "text": {
+            "en": "Sample text. Services every weekend and on feast days.",
+            "ru": "Образец текста. Службы каждые выходные и в праздники."
+          }
+        }
+      ]
+    }
+  ]
+}

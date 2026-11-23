@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "navigation.schema.json",
+  "title": "Navigation",
+  "description": "content/navigation.json: the header button and the footer. The menu itself comes from the page tree (parent, order, nav).",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "header": {
+      "type": "object",
+      "properties": {
+        "button": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "$ref": "common.schema.json#/$defs/id"
+            },
+            "label": {
+              "$ref": "common.schema.json#/$defs/text"
+            }
+          },
+          "required": [
+            "page",
+            "label"
+          ],
+          "additionalProperties": false,
+          "description": "The button at the end of the header, e.g. Donate."
+        }
+      },
+      "additionalProperties": false
+    },
+    "footer": {
+      "type": "object",
+      "properties": {
+        "about": {
+          "$ref": "common.schema.json#/$defs/text",
+          "description": "One line about the parish."
+        },
+        "pages": {
+          "enum": [
+            "top"
+          ],
+          "description": "Footer page links: the top-level pages."
+        },
+        "connect": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/link"
+          },
+          "description": "Links in the Follow column."
+        },
+        "legal": {
+          "$ref": "common.schema.json#/$defs/text"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

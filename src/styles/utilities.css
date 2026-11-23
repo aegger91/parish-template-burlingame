@@ -1,0 +1,73 @@
+/* Utilities, state classes, reduced motion and print. */
+
+[hidden] {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .topbar,
+  .site-header,
+  .page-nav,
+  .site-footer,
+  .lightbox,
+  .video,
+  .oc-feed,
+  .oc-cta,
+  .give-card__form,
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .section {
+    padding-block: 1.5rem;
+  }
+
+  .hero {
+    min-height: 0;
+    color: #000;
+    background: none;
+  }
+
+  .hero::before,
+  .hero__media {
+    display: none;
+  }
+
+  .hero__title {
+    color: #000;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+}

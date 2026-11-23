@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "contact",
+  "slug": "contact",
+  "order": 70,
+  "title": { "en": "Contact", "ru": "Контакты" },
+  "nav": { "icon": "church" },
+  "seo": {
+    "description": {
+      "en": "Sample contact page with address, map and form.",
+      "ru": "Образец страницы контактов с адресом, картой и формой."
+    }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Contact", "ru": "Контакты" },
+      "title": { "en": "Contact", "ru": "Контакты" }
+    },
+    {
+      "id": "find-us",
+      "type": "contact-map",
+      "title": { "en": "Find us", "ru": "Адрес" },
+      "showMap": true,
+      "body": {
+        "en": "Sample text. One line about the location.",
+        "ru": "Образец текста. Одна строка о том, где мы."
+      }
+    },
+    {
+      "id": "write",
+      "type": "contact-form",
+      "title": { "en": "Write to us", "ru": "Напишите нам" },
+      "topics": [
+        {
+          "id": "general",
+          "label": { "en": "General question", "ru": "Общий вопрос" }
+        },
+        {
+          "id": "priest",
+          "label": { "en": "Speak with the priest", "ru": "Поговорить со священником" }
+        },
+        {
+          "id": "website",
+          "label": { "en": "The website", "ru": "Сайт" }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "redirects.schema.json",
+  "title": "Redirects",
+  "description": "content/redirects.json: old addresses that should keep working. For each entry the build writes an HTML page at `from` that forwards to the page in the visitor's language (stored choice, then browser language, then site.sourceLocale). A builder with server-side routing can turn these into 301 redirects instead.",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "$comment": { "type": "string" },
+    "redirects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from": { "type": "string", "pattern": "^/[^?#]*[^/]$", "description": "Old path, e.g. \"/ourparish.html\". Must not collide with a built path (/<locale>/..., /assets/...)." },
+          "page": { "$ref": "common.schema.json#/$defs/id" },
+          "anchor": { "$ref": "common.schema.json#/$defs/id" }
+        },
+        "required": ["from", "page"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["redirects"],
+  "additionalProperties": false
+}

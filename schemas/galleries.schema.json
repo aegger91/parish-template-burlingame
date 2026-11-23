@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "galleries.schema.json",
+  "title": "Galleries",
+  "description": "content/galleries.json: photo albums referenced by gallery sections and news items.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "galleries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "common.schema.json#/$defs/editorial"
+          }
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/image"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "images"
+        ],
+        "unevaluatedProperties": false
+      }
+    }
+  },
+  "required": [
+    "galleries"
+  ],
+  "additionalProperties": false
+}

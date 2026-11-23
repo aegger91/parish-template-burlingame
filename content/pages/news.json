@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "news",
+  "slug": "news",
+  "parent": "parish",
+  "order": 14,
+  "title": { "en": "News", "ru": "Новости" },
+  "nav": { "icon": "bell" },
+  "summary": { "en": "Announcements and parish life.", "ru": "Объявления и жизнь прихода." },
+  "cardImage": {
+    "src": "/assets/img/sample-news-2.jpg",
+    "alt": { "en": "Sample image: a chalice", "ru": "Образец изображения: чаша" }
+  },
+  "seo": {
+    "description": { "en": "Sample parish news.", "ru": "Образец новостей прихода." }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Our Parish", "ru": "Наш приход" },
+      "title": { "en": "News", "ru": "Новости" }
+    },
+    { "id": "articles", "type": "news-list", "articles": true, "filters": true }
+  ]
+}

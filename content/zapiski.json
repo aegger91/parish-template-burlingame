@@ -1,0 +1,122 @@
+{
+  "$schema": "../schemas/zapiski.schema.json",
+  "maxNames": 10,
+  "types": [
+    {
+      "id": "health",
+      "label": { "en": "For Health", "ru": "О здравии" },
+      "heading": "О здра́вїи"
+    },
+    {
+      "id": "repose",
+      "label": { "en": "For the Repose", "ru": "Об упокоении" },
+      "heading": "О᾿ оупокое́нїи"
+    }
+  ],
+  "prefixes": [
+    {
+      "id": "bishop",
+      "label": { "en": "Bishop", "ru": "епископа" },
+      "short": { "en": "Bp.", "ru": "еп." }
+    },
+    {
+      "id": "priest",
+      "label": { "en": "Priest", "ru": "иерея" },
+      "short": { "en": "Fr.", "ru": "иер." }
+    },
+    {
+      "id": "deacon",
+      "label": { "en": "Deacon", "ru": "диакона" },
+      "short": { "en": "Dn.", "ru": "диак." }
+    },
+    {
+      "id": "monastic",
+      "label": { "en": "Monk or nun", "ru": "монаха, монахини" },
+      "short": { "en": "Mon.", "ru": "мон." }
+    },
+    {
+      "id": "infant",
+      "label": { "en": "Infant (under 7)", "ru": "младенца" },
+      "short": { "en": "Inf.", "ru": "мл." }
+    },
+    {
+      "id": "child",
+      "label": { "en": "Child (7 to 15)", "ru": "отрока, отроковицы" },
+      "short": { "en": "Ch.", "ru": "отр." }
+    }
+  ],
+  "commemorations": [
+    {
+      "id": "proskomedia",
+      "label": { "en": "Proskomedia", "ru": "Проскомидия" },
+      "text": { "en": "Read at the Proskomedia.", "ru": "Читается на проскомидии." },
+      "suggested": 5
+    },
+    {
+      "id": "liturgy",
+      "label": { "en": "At the Liturgy", "ru": "На литургии" },
+      "text": {
+        "en": "Names are read aloud at the litany.",
+        "ru": "Имена читаются вслух на ектении."
+      },
+      "suggested": 5
+    },
+    {
+      "id": "moleben",
+      "label": { "en": "Moleben", "ru": "Молебен" },
+      "text": { "en": "Remembered at the next moleben.", "ru": "Поминовение на ближайшем молебне." },
+      "suggested": 10,
+      "for": ["health"]
+    },
+    {
+      "id": "panikhida",
+      "label": { "en": "Panikhida", "ru": "Панихида" },
+      "text": {
+        "en": "Remembered at the next memorial service.",
+        "ru": "Поминовение на ближайшей панихиде."
+      },
+      "suggested": 10,
+      "for": ["repose"]
+    },
+    {
+      "id": "sorokoust",
+      "label": { "en": "Sorokoust (40 days)", "ru": "Сорокоуст (40 дней)" },
+      "text": {
+        "en": "Remembered at every Liturgy for forty days.",
+        "ru": "Поминовение за каждой литургией сорок дней."
+      },
+      "suggested": 40
+    }
+  ],
+  "candles": {
+    "label": { "en": "Light a candle", "ru": "Поставить свечу" },
+    "sizes": [
+      {
+        "id": "small",
+        "label": { "en": "Small candle", "ru": "Малая свеча" },
+        "price": 1
+      },
+      {
+        "id": "medium",
+        "label": { "en": "Medium candle", "ru": "Средняя свеча" },
+        "price": 3
+      },
+      {
+        "id": "large",
+        "label": { "en": "Large candle", "ru": "Большая свеча" },
+        "price": 5
+      }
+    ]
+  },
+  "donation": {
+    "label": { "en": "Add a donation to the church", "ru": "Пожертвование на храм" }
+  },
+  "hint": {
+    "en": "Baptismal names, one per line. In Slavonic notes names are in the genitive: *Николая, Марии*.",
+    "ru": "Имена, данные при крещении, по одному в строке. В записках имена в родительном падеже: *Николая, Марии*."
+  },
+  "consent": {
+    "en": "I agree that the parish may keep these names until they have been commemorated. They are read only by the clergy and are not shared.",
+    "ru": "Я согласен, чтобы приход хранил эти имена до поминовения. Их читает только духовенство, они никому не передаются."
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "requests.schema.json",
+  "title": "Service requests",
+  "description": "content/requests.json: services people can request from the priest or the office.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "recipient": {
+      "$ref": "common.schema.json#/$defs/text",
+      "description": "Who receives requests, e.g. \"Father John or the parish office\"."
+    },
+    "endpoint": {
+      "type": "string",
+      "description": "Where requests post. Empty: sample mode."
+    },
+    "note": {
+      "$ref": "common.schema.json#/$defs/text"
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "needsReview": {
+            "type": "string",
+            "description": "Note for editors. Never shown on the site."
+          },
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "icon": {
+            "$ref": "common.schema.json#/$defs/iconName"
+          },
+          "image": {
+            "$ref": "common.schema.json#/$defs/image",
+            "description": "Photograph instead of the pictogram."
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "accent": {
+            "type": "string"
+          },
+          "summary": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "One line."
+          },
+          "price": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
+                  "free",
+                  "donation"
+                ]
+              },
+              "suggested": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Suggested donation."
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          "duration": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "askDate": {
+            "type": "boolean",
+            "description": "Ask for a preferred date and time.",
+            "default": true
+          },
+          "link": {
+            "$ref": "common.schema.json#/$defs/link"
+          },
+          "cta": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "Button label."
+          }
+        },
+        "required": [
+          "id",
+          "title"
+        ],
+        "additionalProperties": false,
+        "patternProperties": {
+          "^[a-z]{2,3}_locked$": {
+            "type": "boolean",
+            "description": "Marks the translations in this object as approved by a person."
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "services"
+  ],
+  "additionalProperties": false
+}

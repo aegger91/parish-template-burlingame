@@ -1,0 +1,110 @@
+{
+  "$schema": "../schemas/site.schema.json",
+  "id": "st-example",
+  "url": "https://www.example.org",
+  "name": { "en": "St. Example Orthodox Church", "ru": "Храм святого Примера" },
+  "location": { "en": "Anytown, California", "ru": "Энитаун, Калифорния" },
+  "accent": { "name": "Храмъ святаго Примѣра", "lang": "cu" },
+  "jurisdiction": {
+    "name": { "en": "Your Diocese (sample)", "ru": "Ваша епархия (образец)" },
+    "url": "https://www.example.org/"
+  },
+  "timezone": "America/Los_Angeles",
+  "currency": "USD",
+  "locales": [
+    { "code": "en", "label": "EN", "name": "English", "ogLocale": "en_US", "weekStart": 0 },
+    { "code": "ru", "label": "RU", "name": "Русский", "ogLocale": "ru_RU", "weekStart": 1 }
+  ],
+  "sourceLocale": "en",
+  "features": {
+    "livestream": true,
+    "store": true,
+    "serviceRequests": true,
+    "commemorations": true,
+    "getInvolved": true,
+    "newsletter": true
+  },
+  "calendar": { "style": "julian", "showOldStyle": true },
+  "contact": {
+    "address": {
+      "street": "100 Example Avenue",
+      "city": "Anytown",
+      "region": "CA",
+      "postalCode": "90000",
+      "country": "US"
+    },
+    "phone": { "display": "(555) 010-0100", "e164": "+15550100100" },
+    "email": "office@example.org",
+    "directionsUrl": "https://www.example.org/",
+    "officeHours": {
+      "en": "Office open Tuesday to Friday, 10 am to 2 pm (sample)",
+      "ru": "Канцелярия открыта со вторника по пятницу, с 10:00 до 14:00 (образец)"
+    }
+  },
+  "social": [
+    {
+      "id": "youtube",
+      "label": { "en": "YouTube", "ru": "YouTube" },
+      "url": "https://www.example.org/",
+      "icon": "youtube"
+    },
+    {
+      "id": "facebook",
+      "label": { "en": "Facebook", "ru": "Facebook" },
+      "url": "https://www.example.org/",
+      "icon": "facebook"
+    }
+  ],
+  "livestream": {
+    "embedUrl": "https://www.youtube-nocookie.com/embed/live_stream?channel=SAMPLE",
+    "watchUrl": "https://www.example.org/",
+    "leadMinutes": 15,
+    "statusUrl": "",
+    "poster": {
+      "src": "/assets/img/sample-interior.jpg",
+      "alt": { "en": "Sample image: an iconostasis", "ru": "Образец изображения: иконостас" }
+    },
+    "links": [
+      {
+        "label": { "en": "Watch on YouTube", "ru": "Смотреть на YouTube" },
+        "href": "https://www.example.org/",
+        "icon": "youtube"
+      },
+      {
+        "label": { "en": "Watch on Facebook", "ru": "Смотреть в Facebook" },
+        "href": "https://www.example.org/",
+        "icon": "facebook"
+      }
+    ]
+  },
+  "orthodoxConnect": {
+    "parishId": "sample-parish",
+    "appUrl": "https://app.orthodoxconnect.example",
+    "sampleFeed": "integrations/orthodoxconnect.sample.json",
+    "newsletterListId": "sample-list",
+    "links": {
+      "join": "{appUrl}/join/{parishId}",
+      "createEvent": "{appUrl}/parish/{parishId}/events/new",
+      "postNeed": "{appUrl}/parish/{parishId}/needs/new",
+      "item": "{appUrl}/parish/{parishId}/items/{id}"
+    }
+  },
+  "forms": { "contactEndpoint": "" },
+  "logo": {
+    "image": "/logo/mark.svg",
+    "favicon": "/logo/favicon.svg",
+    "icon": "/logo/icon-512.png"
+  },
+  "seo": {
+    "siteName": { "en": "St. Example Orthodox Church", "ru": "Храм святого Примера" },
+    "title": {
+      "en": "St. Example Orthodox Church · Anytown",
+      "ru": "Храм святого Примера · Энитаун"
+    },
+    "description": {
+      "en": "Sample parish website from the Orthodox parish template: services, livestream, news, the parish store and ways to take part.",
+      "ru": "Образец сайта прихода на основе шаблона: богослужения, трансляции, новости, церковная лавка и участие в жизни прихода."
+    },
+    "image": "/assets/img/sample-og.jpg"
+  }
+}

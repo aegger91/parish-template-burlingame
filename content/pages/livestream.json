@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "livestream",
+  "slug": "livestream",
+  "order": 30,
+  "requires": "livestream",
+  "title": { "en": "Livestream & Sermons", "ru": "Трансляции и проповеди" },
+  "nav": {
+    "label": { "en": "Livestream", "ru": "Трансляция" },
+    "icon": "live"
+  },
+  "seo": {
+    "description": {
+      "en": "Sample livestream and sermon archive.",
+      "ru": "Образец трансляции и архива проповедей."
+    }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Livestream", "ru": "Трансляция" },
+      "title": { "en": "Livestream & Sermons", "ru": "Трансляции и проповеди" }
+    },
+    {
+      "id": "live",
+      "type": "livestream",
+      "title": { "en": "Watch the services", "ru": "Смотреть службы" },
+      "upcoming": 4
+    },
+    {
+      "id": "sermons",
+      "type": "sermon-list",
+      "eyebrow": { "en": "Sermons", "ru": "Проповеди" },
+      "title": { "en": "Listen again", "ru": "Слушать проповеди" }
+    }
+  ]
+}

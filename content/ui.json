@@ -1,0 +1,297 @@
+{
+  "$schema": "../schemas/ui.schema.json",
+  "strings": {
+    "nav.home": { "en": "Home", "ru": "Главная" },
+    "a11y.skip": { "en": "Skip to main content", "ru": "Перейти к содержанию" },
+    "a11y.mainNav": { "en": "Main navigation", "ru": "Основное меню" },
+    "a11y.menu": { "en": "Menu", "ru": "Меню" },
+    "a11y.closeMenu": { "en": "Close menu", "ru": "Закрыть меню" },
+    "a11y.submenu": { "en": "{name} pages", "ru": "Разделы: {name}" },
+    "a11y.more": { "en": "More", "ru": "Еще" },
+    "a11y.language": { "en": "Language", "ru": "Язык" },
+    "a11y.breadcrumbs": { "en": "Breadcrumb", "ru": "Навигационная цепочка" },
+    "a11y.onThisPage": { "en": "On this page", "ru": "На этой странице" },
+    "a11y.opensNewWindow": { "en": "(opens in a new window)", "ru": "(откроется в новом окне)" },
+    "lang.en": { "en": "In English", "ru": "На английском языке" },
+    "lang.ru": { "en": "In Russian", "ru": "На русском языке" },
+    "common.learnMore": { "en": "Learn more", "ru": "Подробнее" },
+    "calendar.today": { "en": "Today", "ru": "Сегодня" },
+    "calendar.atAGlance": { "en": "Today at the parish", "ru": "Сегодня в приходе" },
+    "calendar.oldStyle": { "en": "{date} Old Style", "ru": "{date} по ст. ст." },
+    "calendar.feastToday": { "en": "Feast today", "ru": "Сегодня праздник" },
+    "calendar.comingFeast": { "en": "Coming feast", "ru": "Ближайший праздник" },
+    "services.fullSchedule": { "en": "Full schedule", "ru": "Полное расписание" },
+    "services.allPast": {
+      "en": "These services have passed. See the schedule for what is next.",
+      "ru": "Эти службы уже прошли. Ближайшие смотрите в расписании."
+    },
+    "schedule.view": { "en": "View", "ru": "Вид" },
+    "schedule.week": { "en": "Week", "ru": "Неделя" },
+    "schedule.month": { "en": "Month", "ru": "Месяц" },
+    "schedule.today": { "en": "Today", "ru": "Сегодня" },
+    "schedule.prevWeek": { "en": "Previous week", "ru": "Предыдущая неделя" },
+    "schedule.nextWeek": { "en": "Next week", "ru": "Следующая неделя" },
+    "schedule.prevMonth": { "en": "Previous month", "ru": "Предыдущий месяц" },
+    "schedule.nextMonth": { "en": "Next month", "ru": "Следующий месяц" },
+    "schedule.more": { "en": "+{n} more", "ru": "еще {n}" },
+    "schedule.noServices": { "en": "No services", "ru": "Служб нет" },
+    "schedule.noEvents": { "en": "No events", "ru": "Событий нет" },
+    "schedule.noEventsMonth": { "en": "No events this month.", "ru": "В этом месяце событий нет." },
+    "schedule.noServicesMonth": {
+      "en": "No services this month.",
+      "ru": "В этом месяце служб нет."
+    },
+    "schedule.legendFeast": { "en": "Feast day", "ru": "Праздник" },
+    "schedule.legendGreat": { "en": "Great feast", "ru": "Великий праздник" },
+    "live.now": { "en": "Live now", "ru": "Сейчас в эфире" },
+    "live.watch": { "en": "Watch", "ru": "Смотреть" },
+    "live.play": { "en": "Play the livestream", "ru": "Включить трансляцию" },
+    "live.player": { "en": "Livestream video player", "ru": "Видеоплеер трансляции" },
+    "live.privacy": {
+      "en": "The video loads from YouTube only when you press play.",
+      "ru": "Видео загружается с YouTube только после нажатия кнопки."
+    },
+    "live.streamed": { "en": "Streamed", "ru": "Трансляция" },
+    "live.upcoming": { "en": "Next streamed services", "ru": "Ближайшие трансляции" },
+    "live.next": { "en": "Next: {when}, {what}", "ru": "Далее: {when}, {what}" },
+    "sermons.series": { "en": "Series", "ru": "Цикл" },
+    "sermons.speaker": { "en": "Speaker", "ru": "Проповедник" },
+    "sermons.allSpeakers": { "en": "All speakers", "ru": "Все проповедники" },
+    "sermons.play": { "en": "Play: {title}", "ru": "Слушать: {title}" },
+    "sermons.playPause": { "en": "Play or pause", "ru": "Пуск или пауза" },
+    "sermons.seek": { "en": "Position", "ru": "Позиция" },
+    "sermons.speed": { "en": "Speed", "ru": "Скорость" },
+    "sermons.download": { "en": "Download", "ru": "Скачать" },
+    "news.readMore": { "en": "Read more", "ru": "Читать далее" },
+    "documents.volume": { "en": "Volume {n}", "ru": "Том {n}" },
+    "video.watch": { "en": "Watch the video", "ru": "Смотреть видео" },
+    "filter.label": { "en": "Filter", "ru": "Фильтр" },
+    "filter.all": { "en": "All", "ru": "Все" },
+    "filter.none": { "en": "Nothing matches this filter.", "ru": "Ничего не найдено." },
+    "gallery.albums": { "en": "Albums", "ru": "Альбомы" },
+    "gallery.openPhoto": { "en": "Open photo", "ru": "Открыть фото" },
+    "gallery.count": { "en": "{n} of {total}", "ru": "{n} из {total}" },
+    "gallery.viewer": { "en": "Photo viewer", "ru": "Просмотр фотографий" },
+    "gallery.close": { "en": "Close", "ru": "Закрыть" },
+    "gallery.prev": { "en": "Previous photo", "ru": "Предыдущее фото" },
+    "gallery.next": { "en": "Next photo", "ru": "Следующее фото" },
+    "contact.address": { "en": "Address", "ru": "Адрес" },
+    "contact.phone": { "en": "Telephone", "ru": "Телефон" },
+    "contact.email": { "en": "Email", "ru": "Эл. почта" },
+    "contact.directions": { "en": "Directions", "ru": "Как добраться" },
+    "contact.mapTitle": { "en": "Map showing the church", "ru": "Карта с расположением храма" },
+    "footer.visit": { "en": "Visit", "ru": "Адрес" },
+    "footer.pages": { "en": "Pages", "ru": "Разделы" },
+    "footer.connect": { "en": "Follow", "ru": "Мы в сети" },
+    "form.name": { "en": "Your name", "ru": "Ваше имя" },
+    "form.email": { "en": "Email", "ru": "Эл. почта" },
+    "form.phone": { "en": "Phone", "ru": "Телефон" },
+    "form.phoneHint": { "en": "Format: (000)-000-0000", "ru": "Формат: (000)-000-0000" },
+    "form.message": { "en": "Message", "ru": "Сообщение" },
+    "form.topic": { "en": "Topic", "ru": "Тема" },
+    "form.optional": { "en": "(optional)", "ru": "(необязательно)" },
+    "form.send": { "en": "Send", "ru": "Отправить" },
+    "form.cancel": { "en": "Cancel", "ru": "Отмена" },
+    "form.close": { "en": "Close", "ru": "Закрыть" },
+    "form.privacy": {
+      "en": "We use your details only to reply to you.",
+      "ru": "Мы используем ваши данные только для ответа."
+    },
+    "form.required": { "en": "Please fill in this field.", "ru": "Пожалуйста, заполните это поле." },
+    "form.invalidEmail": {
+      "en": "Please enter a valid email.",
+      "ru": "Введите правильный адрес эл. почты."
+    },
+    "form.invalidPhone": {
+      "en": "Please enter a 10-digit phone number.",
+      "ru": "Введите номер телефона из 10 цифр."
+    },
+    "form.thanks": { "en": "Thank you. We will reply soon.", "ru": "Спасибо. Мы скоро ответим." },
+    "form.sample": {
+      "en": "This is a sample form, so nothing was sent.",
+      "ru": "Это образец формы, ничего не отправлено."
+    },
+    "form.error": {
+      "en": "Something went wrong. Please try again or call the office.",
+      "ru": "Что-то пошло не так. Попробуйте еще раз или позвоните в канцелярию."
+    },
+    "newsletter.title": { "en": "Parish newsletter", "ru": "Рассылка прихода" },
+    "newsletter.text": {
+      "en": "News and the schedule by email, about twice a month.",
+      "ru": "Новости и расписание по почте, примерно два раза в месяц."
+    },
+    "newsletter.placeholder": { "en": "Your email", "ru": "Ваша эл. почта" },
+    "newsletter.subscribe": { "en": "Subscribe", "ru": "Подписаться" },
+    "newsletter.thanks": {
+      "en": "Thank you. Please check your email to confirm.",
+      "ru": "Спасибо. Проверьте почту, чтобы подтвердить подписку."
+    },
+    "donate.frequency": { "en": "How often", "ru": "Как часто" },
+    "donate.once": { "en": "One time", "ru": "Разово" },
+    "donate.monthly": { "en": "Monthly", "ru": "Ежемесячно" },
+    "donate.amount": { "en": "Amount", "ru": "Сумма" },
+    "donate.other": { "en": "Other", "ru": "Другая" },
+    "donate.otherAmount": { "en": "Other amount", "ru": "Другая сумма" },
+    "donate.perMonth": { "en": "/mo", "ru": "/мес." },
+    "donate.fund": { "en": "Give to", "ru": "Назначение" },
+    "donate.give": { "en": "Donate", "ru": "Пожертвовать" },
+    "donate.giveAmount": { "en": "Donate {amount}", "ru": "Пожертвовать {amount}" },
+    "donate.giveMonthly": { "en": "Donate {amount} a month", "ru": "Жертвовать {amount} в месяц" },
+    "donate.secureNote": {
+      "en": "You will finish on the payment provider's secure page.",
+      "ru": "Оплата завершается на защищенной странице платежной системы."
+    },
+    "donate.thanks": {
+      "en": "Thank you for your gift. May God bless you.",
+      "ru": "Спасибо за пожертвование. Спаси Господи."
+    },
+    "store.addToCart": { "en": "Add to cart", "ru": "В корзину" },
+    "store.chooseOptions": { "en": "Choose", "ru": "Выбрать" },
+    "store.details": { "en": "Details", "ru": "Подробнее" },
+    "store.from": { "en": "from {price}", "ru": "от {price}" },
+    "store.inStock": { "en": "In stock", "ru": "В наличии" },
+    "store.fewLeft": { "en": "Only {n} left", "ru": "Осталось {n}" },
+    "store.soldOut": { "en": "Sold out", "ru": "Нет в наличии" },
+    "store.option": { "en": "Option", "ru": "Вариант" },
+    "store.photo": { "en": "Photo {n}", "ru": "Фото {n}" },
+    "store.pickupNote": { "en": "Pick up at the church.", "ru": "Можно забрать в храме." },
+    "store.shipNote": { "en": "Shipping available.", "ru": "Есть доставка." },
+    "cart.title": { "en": "Cart", "ru": "Корзина" },
+    "cart.withCount": { "en": "Cart, {n} items", "ru": "Корзина, товаров: {n}" },
+    "cart.view": { "en": "View cart", "ru": "Открыть корзину" },
+    "cart.added": { "en": "Added to cart: {title}", "ru": "Добавлено в корзину: {title}" },
+    "cart.empty": { "en": "Your cart is empty.", "ru": "Корзина пуста." },
+    "cart.toStore": { "en": "Go to the store", "ru": "В лавку" },
+    "cart.toZapiski": { "en": "Write a commemoration note", "ru": "Написать записку" },
+    "cart.quantity": { "en": "Quantity", "ru": "Количество" },
+    "cart.less": { "en": "One less", "ru": "Меньше" },
+    "cart.more": { "en": "One more", "ru": "Больше" },
+    "cart.remove": { "en": "Remove", "ru": "Удалить" },
+    "cart.subtotal": { "en": "Subtotal", "ru": "Сумма" },
+    "cart.shipping": { "en": "Shipping", "ru": "Доставка" },
+    "cart.free": { "en": "Free", "ru": "Бесплатно" },
+    "cart.total": { "en": "Total", "ru": "Итого" },
+    "checkout.title": { "en": "Checkout", "ru": "Оформление" },
+    "checkout.fulfillment": { "en": "How would you like to get it?", "ru": "Как получить заказ?" },
+    "checkout.pickup": { "en": "Pick up at the church", "ru": "Забрать в храме" },
+    "checkout.ship": { "en": "Ship to me", "ru": "Доставка" },
+    "checkout.noShipHint": {
+      "en": "Commemoration notes and candles need no shipping.",
+      "ru": "Записки и свечи доставлять не нужно."
+    },
+    "checkout.address": { "en": "Street address", "ru": "Адрес" },
+    "checkout.city": { "en": "City and state", "ru": "Город и штат" },
+    "checkout.postal": { "en": "ZIP code", "ru": "Почтовый индекс" },
+    "checkout.pay": { "en": "Continue to payment", "ru": "Перейти к оплате" },
+    "checkout.providerNote": {
+      "en": "Payment is handled by the parish's payment provider. Card details never touch this site.",
+      "ru": "Оплату проводит платежная система прихода. Данные карты не проходят через этот сайт."
+    },
+    "checkout.sample": {
+      "en": "This is a sample store, so no payment was taken and your cart is still here.",
+      "ru": "Это образец лавки: оплата не проведена, корзина сохранена."
+    },
+    "checkout.thanks": { "en": "Thank you. Your order is in.", "ru": "Спасибо, заказ принят." },
+    "requests.free": { "en": "Free", "ru": "Бесплатно" },
+    "requests.donation": { "en": "Donation", "ru": "Пожертвование" },
+    "requests.suggested": { "en": "Suggested {amount}", "ru": "Рекомендуемое {amount}" },
+    "requests.request": { "en": "Request", "ru": "Заказать" },
+    "requests.submitOnline": { "en": "Submit online", "ru": "Подать онлайн" },
+    "requests.callOffice": { "en": "Call the office", "ru": "Позвонить в канцелярию" },
+    "requests.formEyebrow": { "en": "Request a service", "ru": "Заказ требы" },
+    "requests.goesTo": { "en": "Your request goes to {who}.", "ru": "Заявка придет {who}." },
+    "requests.date": { "en": "Preferred date", "ru": "Желаемая дата" },
+    "requests.time": { "en": "Preferred time", "ru": "Желаемое время" },
+    "requests.notes": { "en": "Notes", "ru": "Примечания" },
+    "requests.privacy": {
+      "en": "We use your details only to arrange the service.",
+      "ru": "Мы используем ваши данные только чтобы договориться о требе."
+    },
+    "requests.send": { "en": "Send request", "ru": "Отправить заявку" },
+    "requests.thanks": {
+      "en": "Thank you. We will call you to set a time.",
+      "ru": "Спасибо. Мы позвоним, чтобы договориться о времени."
+    },
+    "zapiski.slip": { "en": "Note {n}", "ru": "Записка {n}" },
+    "zapiski.type": { "en": "Kind of note", "ru": "Вид записки" },
+    "zapiski.prefix": { "en": "Prefix", "ru": "Приставка" },
+    "zapiski.noPrefix": { "en": "No prefix", "ru": "Без приставки" },
+    "zapiski.name": { "en": "Baptismal name", "ru": "Имя при крещении" },
+    "zapiski.namePlaceholder": { "en": "Baptismal name", "ru": "Имя" },
+    "zapiski.addName": { "en": "Add a name", "ru": "Добавить имя" },
+    "zapiski.removeName": { "en": "Remove this name", "ru": "Удалить имя" },
+    "zapiski.nameCount": { "en": "{n} of {max} names", "ru": "Имен: {n} из {max}" },
+    "zapiski.commemoration": { "en": "Commemoration", "ru": "Поминовение" },
+    "zapiski.candle": { "en": "Candle", "ru": "Свеча" },
+    "zapiski.noCandle": { "en": "No candle", "ru": "Без свечи" },
+    "zapiski.slipTotal": { "en": "This note:", "ru": "За записку:" },
+    "zapiski.removeSlip": { "en": "Remove note", "ru": "Удалить записку" },
+    "zapiski.addSlip": { "en": "Add another note", "ru": "Добавить записку" },
+    "zapiski.donation": { "en": "Add a donation", "ru": "Пожертвование" },
+    "zapiski.donationLine": { "en": "Donation to the church", "ru": "Пожертвование на храм" },
+    "zapiski.cartTitle": { "en": "Commemoration note", "ru": "Записка" },
+    "zapiski.notes": { "en": "Notes", "ru": "Записок" },
+    "zapiski.addToCart": { "en": "Add to cart", "ru": "В корзину" },
+    "zapiski.submit": { "en": "Donate and submit", "ru": "Пожертвовать и подать" },
+    "zapiski.needName": {
+      "en": "Please write at least one name on each note.",
+      "ru": "Впишите хотя бы одно имя в каждую записку."
+    },
+    "zapiski.needConsent": {
+      "en": "Please tick the box to agree before sending.",
+      "ru": "Отметьте согласие перед отправкой."
+    },
+    "zapiski.added": {
+      "en": "Added {n} note(s) to the cart.",
+      "ru": "Записок добавлено в корзину: {n}."
+    },
+    "zapiski.noscript": {
+      "en": "Online notes need JavaScript. You can also bring a note to the candle desk.",
+      "ru": "Для записок онлайн нужен JavaScript. Записку можно подать и в свечной лавке."
+    },
+    "oc.onConnect": { "en": "on OrthodoxConnect", "ru": "в OrthodoxConnect" },
+    "oc.sampleBadge": { "en": "Sample", "ru": "Образец" },
+    "oc.sampleNotice": {
+      "en": "Sample items to show the layout. The parish's own listings appear here once it connects OrthodoxConnect.",
+      "ru": "Образцы для показа макета. Настоящие записи прихода появятся после подключения к OrthodoxConnect."
+    },
+    "oc.kind.event": { "en": "Event", "ru": "Событие" },
+    "oc.kind.volunteer": { "en": "Volunteer", "ru": "Помощь" },
+    "oc.kind.need": { "en": "Need", "ru": "Нужда" },
+    "oc.cta.event": { "en": "RSVP", "ru": "Записаться" },
+    "oc.cta.volunteer": { "en": "Sign up", "ru": "Записаться" },
+    "oc.cta.need": { "en": "Pledge", "ru": "Обещать" },
+    "oc.organizer": { "en": "Organized by {name}", "ru": "Организатор: {name}" },
+    "oc.timeRange": { "en": "{start} to {end}", "ru": "{start}–{end}" },
+    "oc.signedUp": {
+      "en": "{filled} of {needed} signed up",
+      "ru": "Записались {filled} из {needed}"
+    },
+    "oc.pledged": {
+      "en": "{filled} of {needed} {unit} pledged",
+      "ru": "Обещано {filled} из {needed} {unit}"
+    },
+    "oc.spotsLeft": { "en": "{n} left", "ru": "Осталось {n}" },
+    "oc.full": { "en": "Full", "ru": "Мест нет" },
+    "oc.createEvent": { "en": "Create an event", "ru": "Создать событие" },
+    "oc.postNeed": { "en": "Post a need", "ru": "Сообщить о нужде" },
+    "oc.appNote": {
+      "en": "Opens the OrthodoxConnect app for this parish.",
+      "ru": "Откроется приложение OrthodoxConnect для этого прихода."
+    },
+    "oc.join": { "en": "Join on OrthodoxConnect", "ru": "Присоединиться" },
+    "oc.comingSoon": { "en": "Coming soon", "ru": "Скоро" },
+    "oc.signupSample": {
+      "en": "Sample item. Once the parish is connected, this signs you up with your OrthodoxConnect account.",
+      "ru": "Образец. После подключения прихода здесь можно будет записаться через аккаунт OrthodoxConnect."
+    },
+    "oc.signupThanks": {
+      "en": "You are signed up. See you there.",
+      "ru": "Вы записаны. До встречи."
+    },
+    "oc.deepLinkSample": {
+      "en": "Sample link. In the live site this opens OrthodoxConnect.",
+      "ru": "Образец ссылки. На настоящем сайте откроется OrthodoxConnect."
+    }
+  }
+}

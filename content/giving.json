@@ -1,0 +1,67 @@
+{
+  "$schema": "../schemas/giving.schema.json",
+  "$comment": "The donation form is not tied to one payment company. Connect it in site.js with ParishSite.handlers.donate, or set endpoint to a server that starts the payment.",
+  "provider": "stripe",
+  "endpoint": "",
+  "note": {
+    "en": "Sample form. No payment is taken until the parish connects its payment provider.",
+    "ru": "Образец формы. Оплата не проводится, пока приход не подключит платежную систему."
+  },
+  "amounts": { "once": [25, 50, 100, 250], "monthly": [10, 25, 50, 100] },
+  "funds": [
+    {
+      "id": "general",
+      "title": { "en": "Where it is most needed", "ru": "На нужды храма" },
+      "description": {
+        "en": "Support the life and services of the parish.",
+        "ru": "Поддержите жизнь и богослужения прихода."
+      }
+    },
+    {
+      "id": "building",
+      "title": { "en": "Building fund", "ru": "Строительный фонд" },
+      "description": {
+        "en": "Help care for the church building and grounds.",
+        "ru": "Помогите в заботе о здании храма и территории."
+      }
+    },
+    {
+      "id": "charity",
+      "title": { "en": "Help for those in need", "ru": "Помощь нуждающимся" },
+      "description": {
+        "en": "Food, rent and medical help for families in need.",
+        "ru": "Продукты, аренда и лечение для нуждающихся семей."
+      }
+    },
+    {
+      "id": "dues",
+      "title": { "en": "Membership dues", "ru": "Членские взносы" },
+      "description": {
+        "en": "Your monthly dues as a parish member.",
+        "ru": "Ежемесячные взносы члена прихода."
+      }
+    }
+  ],
+  "dues": {
+    "rates": [
+      {
+        "id": "individual",
+        "amount": 25,
+        "label": { "en": "per month, individual (sample)", "ru": "в месяц, один человек (образец)" }
+      },
+      {
+        "id": "family",
+        "amount": 40,
+        "label": { "en": "per month, family (sample)", "ru": "в месяц, семья (образец)" }
+      },
+      {
+        "id": "student",
+        "amount": 10,
+        "label": {
+          "en": "per month, student or retired (sample)",
+          "ru": "в месяц, студенты и пенсионеры (образец)"
+        }
+      }
+    ]
+  }
+}

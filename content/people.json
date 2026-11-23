@@ -1,0 +1,178 @@
+{
+  "$schema": "../schemas/people.schema.json",
+  "people": [
+    {
+      "id": "john-sample",
+      "name": { "en": "Archpriest John Sample", "ru": "Протоиерей Иоанн Примеров" },
+      "photo": {
+        "src": "/assets/img/sample-portrait-1.jpg",
+        "alt": {
+          "en": "Archpriest John Sample (sample portrait)",
+          "ru": "Протоиерей Иоанн Примеров (образец портрета)"
+        }
+      },
+      "email": "rector@example.org",
+      "phone": { "display": "(555) 010-0101", "e164": "+15550100101" },
+      "roles": [
+        {
+          "group": "clergy",
+          "title": { "en": "Rector", "ru": "Настоятель" },
+          "order": 1
+        },
+        {
+          "group": "council",
+          "title": { "en": "Rector", "ru": "Настоятель" },
+          "order": 1
+        },
+        {
+          "group": "contacts",
+          "title": { "en": "Rector", "ru": "Настоятель" },
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "peter-example",
+      "name": { "en": "Deacon Peter Example", "ru": "Диакон Петр Образцов" },
+      "photo": {
+        "src": "/assets/img/sample-portrait-2.jpg",
+        "alt": {
+          "en": "Deacon Peter Example (sample portrait)",
+          "ru": "Диакон Петр Образцов (образец портрета)"
+        }
+      },
+      "email": "deacon@example.org",
+      "roles": [
+        {
+          "group": "clergy",
+          "title": { "en": "Deacon", "ru": "Диакон" },
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "anna-sample",
+      "name": { "en": "Matushka Anna Sample", "ru": "Матушка Анна Примерова" },
+      "photo": {
+        "src": "/assets/img/sample-portrait-3.jpg",
+        "alt": {
+          "en": "Matushka Anna Sample (sample portrait)",
+          "ru": "Матушка Анна Примерова (образец портрета)"
+        }
+      },
+      "email": "sisterhood@example.org",
+      "phone": { "display": "(555) 010-0103", "e164": "+15550100103" },
+      "roles": [
+        {
+          "group": "clergy",
+          "title": { "en": "Matushka", "ru": "Матушка" },
+          "order": 3
+        },
+        {
+          "group": "sisterhood",
+          "title": { "en": "Head of the Sisterhood", "ru": "Старшая сестра" },
+          "order": 1
+        },
+        {
+          "group": "contacts",
+          "title": { "en": "Sisterhood and parish hall", "ru": "Сестричество и приходской зал" },
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "maria-example",
+      "name": { "en": "Maria Example", "ru": "Мария Образцова" },
+      "photo": {
+        "src": "/assets/img/sample-portrait-4.jpg",
+        "alt": {
+          "en": "Maria Example (sample portrait)",
+          "ru": "Мария Образцова (образец портрета)"
+        }
+      },
+      "email": "choir@example.org",
+      "roles": [
+        {
+          "group": "choir",
+          "title": { "en": "Choir Director", "ru": "Регент хора" },
+          "order": 1
+        },
+        {
+          "group": "contacts",
+          "title": { "en": "Choir Director", "ru": "Регент хора" },
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "irina-example",
+      "name": { "en": "Irina Example", "ru": "Ирина Образцова" },
+      "email": "school@example.org",
+      "roles": [
+        {
+          "group": "school",
+          "title": { "en": "Church School Director", "ru": "Директор церковной школы" },
+          "order": 1
+        },
+        {
+          "group": "contacts",
+          "title": { "en": "Church School", "ru": "Церковная школа" },
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "nicholas-example",
+      "name": { "en": "Nicholas Example", "ru": "Николай Образцов" },
+      "email": "warden@example.org",
+      "phone": { "display": "(555) 010-0102", "e164": "+15550100102" },
+      "roles": [
+        {
+          "group": "council",
+          "title": { "en": "Warden", "ru": "Староста" },
+          "order": 2
+        },
+        {
+          "group": "contacts",
+          "title": { "en": "Warden", "ru": "Староста" },
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "helen-example",
+      "name": { "en": "Helen Example", "ru": "Елена Образцова" },
+      "email": "treasurer@example.org",
+      "roles": [
+        {
+          "group": "council",
+          "title": { "en": "Treasurer", "ru": "Казначей" },
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "andrew-example",
+      "name": { "en": "Andrew Example", "ru": "Андрей Образцов" },
+      "email": "secretary@example.org",
+      "roles": [
+        {
+          "group": "council",
+          "title": { "en": "Secretary", "ru": "Секретарь" },
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "sophia-example",
+      "name": { "en": "Sophia Example", "ru": "Софья Образцова" },
+      "roles": [
+        {
+          "group": "council",
+          "title": { "en": "Council Member", "ru": "Член совета" },
+          "order": 5
+        }
+      ]
+    }
+  ]
+}

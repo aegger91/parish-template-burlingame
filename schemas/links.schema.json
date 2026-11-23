@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "links.schema.json",
+  "title": "Links",
+  "description": "content/links.json: grouped external links (diocese, resources).",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "common.schema.json#/$defs/editorial"
+          }
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "allOf": [
+                {
+                  "$ref": "common.schema.json#/$defs/editorial"
+                }
+              ],
+              "properties": {
+                "label": {
+                  "$ref": "common.schema.json#/$defs/text"
+                },
+                "href": {
+                  "anyOf": [
+                    {
+                      "$ref": "common.schema.json#/$defs/url"
+                    },
+                    {
+                      "$ref": "common.schema.json#/$defs/path"
+                    }
+                  ]
+                },
+                "description": {
+                  "$ref": "common.schema.json#/$defs/markdown"
+                }
+              },
+              "required": [
+                "label",
+                "href"
+              ],
+              "unevaluatedProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "links"
+        ],
+        "unevaluatedProperties": false
+      }
+    }
+  },
+  "required": [
+    "groups"
+  ],
+  "additionalProperties": false
+}

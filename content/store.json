@@ -1,0 +1,356 @@
+{
+  "$schema": "../schemas/store.schema.json",
+  "$comment": "Prices are in site.currency. stock: how many are left (0 = sold out); leave it out when you do not track stock. Product pages are made for you under the Store page.",
+  "categories": [
+    {
+      "id": "icons",
+      "label": { "en": "Icons", "ru": "Иконы" }
+    },
+    {
+      "id": "candles",
+      "label": { "en": "Candles", "ru": "Свечи" }
+    },
+    {
+      "id": "books",
+      "label": { "en": "Books", "ru": "Книги" }
+    },
+    {
+      "id": "prayer-ropes",
+      "label": { "en": "Prayer ropes", "ru": "Четки" }
+    },
+    {
+      "id": "incense",
+      "label": { "en": "Incense", "ru": "Ладан" }
+    },
+    {
+      "id": "crosses",
+      "label": { "en": "Crosses", "ru": "Крестики" }
+    },
+    {
+      "id": "gifts",
+      "label": { "en": "Gifts", "ru": "Подарки" }
+    }
+  ],
+  "fulfillment": {
+    "pickup": {
+      "enabled": true,
+      "note": {
+        "en": "Pick up at the candle desk after any service.",
+        "ru": "Заберите заказ в свечной лавке после любой службы."
+      }
+    },
+    "ship": {
+      "enabled": true,
+      "flatRate": 8,
+      "freeOver": 75,
+      "note": {
+        "en": "Shipping in the US: $8, free over $75.",
+        "ru": "Доставка по США: 8 $, бесплатно при заказе от 75 $."
+      }
+    }
+  },
+  "checkout": { "provider": "stripe", "endpoint": "" },
+  "products": [
+    {
+      "id": "icon-christ-pantocrator",
+      "category": "icons",
+      "featured": true,
+      "name": { "en": "Icon of Christ the Pantocrator", "ru": "Икона Спасителя Вседержителя" },
+      "summary": {
+        "en": "Mounted print on wood with a gold edge (sample).",
+        "ru": "Литография на дереве с золотым краем (образец)."
+      },
+      "description": {
+        "en": "Sample product. Printed in the traditional style and mounted on a wooden board, ready for an icon corner. Blessed at the church before pickup or shipping.",
+        "ru": "Образец товара. Литография в традиционном стиле на деревянной основе для домашнего иконостаса. Освящается в храме перед выдачей или отправкой."
+      },
+      "price": 25,
+      "variantLabel": { "en": "Size", "ru": "Размер" },
+      "variants": [
+        {
+          "id": "5x7",
+          "label": { "en": "5 x 7 in", "ru": "13 x 18 см" },
+          "price": 25,
+          "stock": 6
+        },
+        {
+          "id": "8x10",
+          "label": { "en": "8 x 10 in", "ru": "20 x 25 см" },
+          "price": 45,
+          "stock": 2
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/img/sample-product-icon-christ.jpg",
+          "alt": {
+            "en": "Sample product photo: icon of Christ",
+            "ru": "Образец фото товара: икона Спасителя"
+          }
+        },
+        {
+          "src": "/assets/img/sample-product-icon-christ-2.jpg",
+          "alt": {
+            "en": "Sample product photo: icon on a stand",
+            "ru": "Образец фото товара: икона на подставке"
+          }
+        }
+      ]
+    },
+    {
+      "id": "icon-kazan",
+      "category": "icons",
+      "name": { "en": "Kazan Icon of the Mother of God", "ru": "Казанская икона Божией Матери" },
+      "summary": {
+        "en": "Mounted print on wood (sample).",
+        "ru": "Литография на дереве (образец)."
+      },
+      "price": 25,
+      "variantLabel": { "en": "Size", "ru": "Размер" },
+      "variants": [
+        {
+          "id": "5x7",
+          "label": { "en": "5 x 7 in", "ru": "13 x 18 см" },
+          "price": 25,
+          "stock": 4
+        },
+        {
+          "id": "8x10",
+          "label": { "en": "8 x 10 in", "ru": "20 x 25 см" },
+          "price": 45,
+          "stock": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/img/sample-product-icon-theotokos.jpg",
+          "alt": {
+            "en": "Sample product photo: icon of the Theotokos",
+            "ru": "Образец фото товара: икона Богородицы"
+          }
+        }
+      ]
+    },
+    {
+      "id": "beeswax-tapers",
+      "category": "candles",
+      "featured": true,
+      "name": { "en": "Beeswax tapers", "ru": "Восковые свечи" },
+      "summary": {
+        "en": "Pure beeswax, for home prayer (sample).",
+        "ru": "Чистый пчелиный воск, для домашней молитвы (образец)."
+      },
+      "price": 12,
+      "variantLabel": { "en": "Pack", "ru": "Упаковка" },
+      "variants": [
+        {
+          "id": "25",
+          "label": { "en": "Pack of 25", "ru": "25 шт." },
+          "price": 12
+        },
+        {
+          "id": "100",
+          "label": { "en": "Pack of 100", "ru": "100 шт." },
+          "price": 40
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/img/sample-product-candles.jpg",
+          "alt": {
+            "en": "Sample product photo: beeswax tapers",
+            "ru": "Образец фото товара: восковые свечи"
+          }
+        },
+        {
+          "src": "/assets/img/sample-product-candles-2.jpg",
+          "alt": {
+            "en": "Sample product photo: lit tapers",
+            "ru": "Образец фото товара: горящие свечи"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lampada",
+      "category": "gifts",
+      "name": { "en": "Hanging vigil lamp (lampada)", "ru": "Подвесная лампада" },
+      "summary": {
+        "en": "Glass lamp with a brass holder (sample).",
+        "ru": "Стеклянная лампада в латунной подвеске (образец)."
+      },
+      "price": 28,
+      "variantLabel": { "en": "Glass", "ru": "Стекло" },
+      "variants": [
+        {
+          "id": "red",
+          "label": { "en": "Red", "ru": "Красное" },
+          "stock": 5
+        },
+        {
+          "id": "blue",
+          "label": { "en": "Blue", "ru": "Синее" },
+          "stock": 3
+        },
+        {
+          "id": "clear",
+          "label": { "en": "Clear", "ru": "Прозрачное" },
+          "stock": 1
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/img/sample-product-lampada.jpg",
+          "alt": { "en": "Sample product photo: vigil lamp", "ru": "Образец фото товара: лампада" }
+        }
+      ]
+    },
+    {
+      "id": "prayer-rope",
+      "category": "prayer-ropes",
+      "featured": true,
+      "name": { "en": "Wool prayer rope", "ru": "Шерстяные четки" },
+      "summary": {
+        "en": "Knotted by hand, with a tassel (sample).",
+        "ru": "Плетеные вручную, с кисточкой (образец)."
+      },
+      "price": 10,
+      "variantLabel": { "en": "Knots", "ru": "Узелков" },
+      "variants": [
+        {
+          "id": "33",
+          "label": { "en": "33 knots", "ru": "33 узелка" },
+          "price": 10,
+          "stock": 12
+        },
+        {
+          "id": "50",
+          "label": { "en": "50 knots", "ru": "50 узелков" },
+          "price": 15,
+          "stock": 8
+        },
+        {
+          "id": "100",
+          "label": { "en": "100 knots", "ru": "100 узелков" },
+          "price": 25,
+          "stock": 3
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/img/sample-product-prayer-rope.jpg",
+          "alt": { "en": "Sample product photo: prayer rope", "ru": "Образец фото товара: четки" }
+        }
+      ]
+    },
+    {
+      "id": "incense",
+      "category": "incense",
+      "name": { "en": "Church incense, 50 g", "ru": "Церковный ладан, 50 г" },
+      "summary": {
+        "en": "For the home censer (sample).",
+        "ru": "Для домашней кадильницы (образец)."
+      },
+      "price": 9,
+      "variantLabel": { "en": "Scent", "ru": "Аромат" },
+      "variants": [
+        {
+          "id": "rose",
+          "label": { "en": "Rose", "ru": "Роза" }
+        },
+        {
+          "id": "byzantine",
+          "label": { "en": "Byzantine", "ru": "Византийский" }
+        },
+        {
+          "id": "myrrh",
+          "label": { "en": "Myrrh", "ru": "Смирна" }
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/img/sample-product-incense.jpg",
+          "alt": {
+            "en": "Sample product photo: censer with incense",
+            "ru": "Образец фото товара: кадильница с ладаном"
+          }
+        }
+      ]
+    },
+    {
+      "id": "prayer-book",
+      "category": "books",
+      "featured": true,
+      "name": { "en": "Orthodox prayer book", "ru": "Православный молитвослов" },
+      "summary": {
+        "en": "Morning and evening prayers, in English and Church Slavonic (sample).",
+        "ru": "Утренние и вечерние молитвы на английском и церковнославянском (образец)."
+      },
+      "price": 22,
+      "stock": 10,
+      "images": [
+        {
+          "src": "/assets/img/sample-product-prayer-book.jpg",
+          "alt": {
+            "en": "Sample product photo: prayer book",
+            "ru": "Образец фото товара: молитвослов"
+          }
+        }
+      ]
+    },
+    {
+      "id": "baptismal-cross",
+      "category": "crosses",
+      "name": { "en": "Baptismal neck cross", "ru": "Нательный крестик" },
+      "summary": {
+        "en": "Eight-pointed cross on a cord (sample).",
+        "ru": "Восьмиконечный крестик на гайтане (образец)."
+      },
+      "price": 8,
+      "variantLabel": { "en": "Material", "ru": "Материал" },
+      "variants": [
+        {
+          "id": "wood",
+          "label": { "en": "Wood, on a cord", "ru": "Дерево, на гайтане" },
+          "price": 8,
+          "stock": 20
+        },
+        {
+          "id": "silver",
+          "label": { "en": "Sterling silver", "ru": "Серебро" },
+          "price": 45,
+          "stock": 2
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/img/sample-product-cross.jpg",
+          "alt": {
+            "en": "Sample product photo: neck cross",
+            "ru": "Образец фото товара: нательный крестик"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nativity-cards",
+      "category": "gifts",
+      "name": { "en": "Nativity cards, set of 10", "ru": "Рождественские открытки, 10 шт." },
+      "summary": {
+        "en": "Folded cards with an icon of the Nativity (sample).",
+        "ru": "Открытки с иконой Рождества (образец)."
+      },
+      "price": 12,
+      "stock": 0,
+      "images": [
+        {
+          "src": "/assets/img/sample-product-cards.jpg",
+          "alt": {
+            "en": "Sample product photo: greeting cards",
+            "ru": "Образец фото товара: открытки"
+          }
+        }
+      ]
+    }
+  ]
+}

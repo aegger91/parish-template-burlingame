@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "clergy",
+  "slug": "clergy",
+  "parent": "parish",
+  "order": 11,
+  "title": { "en": "Clergy", "ru": "Духовенство" },
+  "nav": { "icon": "chalice" },
+  "summary": {
+    "en": "The priest, deacon and those who serve.",
+    "ru": "Священник, диакон и все, кто служит."
+  },
+  "cardImage": { "src": "/assets/img/sample-portrait-1.jpg", "alt": "" },
+  "seo": {
+    "description": { "en": "Sample clergy page.", "ru": "Образец страницы духовенства." }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Our Parish", "ru": "Наш приход" },
+      "title": { "en": "Clergy", "ru": "Духовенство" }
+    },
+    {
+      "id": "rector",
+      "type": "person-profile",
+      "person": "john-sample",
+      "body": {
+        "en": "Sample biography. One or two lines.",
+        "ru": "Образец биографии. Одна-две строки."
+      },
+      "actions": [
+        {
+          "label": { "en": "Request a service", "ru": "Заказать требу" },
+          "page": "request-service"
+        }
+      ]
+    },
+    {
+      "id": "clergy",
+      "type": "people-list",
+      "title": { "en": "Clergy and staff", "ru": "Духовенство и сотрудники" },
+      "group": "clergy"
+    },
+    {
+      "id": "council",
+      "type": "people-list",
+      "title": { "en": "Parish council", "ru": "Приходской совет" },
+      "group": "council"
+    }
+  ]
+}

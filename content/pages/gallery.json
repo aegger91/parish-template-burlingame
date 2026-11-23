@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "gallery",
+  "slug": "gallery",
+  "parent": "parish",
+  "order": 13,
+  "title": { "en": "Gallery", "ru": "Фотогалерея" },
+  "nav": { "icon": "icon-frame" },
+  "summary": {
+    "en": "Photos of the church and parish life.",
+    "ru": "Фотографии храма и жизни прихода."
+  },
+  "cardImage": {
+    "src": "/assets/img/sample-gallery-2.jpg",
+    "alt": { "en": "Sample image: an iconostasis", "ru": "Образец изображения: иконостас" }
+  },
+  "seo": {
+    "description": { "en": "Sample photo gallery.", "ru": "Образец фотогалереи." }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Our Parish", "ru": "Наш приход" },
+      "title": { "en": "Gallery", "ru": "Фотогалерея" }
+    },
+    { "id": "photos", "type": "gallery", "galleries": ["church", "feasts", "parish-life"] }
+  ]
+}

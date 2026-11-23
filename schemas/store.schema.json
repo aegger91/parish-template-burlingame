@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "store.schema.json",
+  "title": "Store",
+  "description": "content/store.json: products, categories and how orders are collected.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "fulfillment": {
+      "type": "object",
+      "properties": {
+        "pickup": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "note": {
+              "$ref": "common.schema.json#/$defs/text"
+            }
+          },
+          "required": [
+            "enabled"
+          ],
+          "additionalProperties": false
+        },
+        "ship": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "flatRate": {
+              "type": "number",
+              "minimum": 0
+            },
+            "freeOver": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Free shipping over this order total."
+            },
+            "note": {
+              "$ref": "common.schema.json#/$defs/text"
+            }
+          },
+          "required": [
+            "enabled"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "checkout": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string",
+          "description": "Where checkout posts. Empty: sample mode."
+        }
+      },
+      "additionalProperties": false
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "needsReview": {
+            "type": "string",
+            "description": "Note for editors. Never shown on the site."
+          },
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "slug": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "URL part. Default: the id."
+          },
+          "category": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "featured": {
+            "type": "boolean"
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "summary": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "description": {
+            "$ref": "common.schema.json#/$defs/markdown"
+          },
+          "price": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Price when there are no variants."
+          },
+          "stock": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "How many are left. Leave out for no limit."
+          },
+          "variantLabel": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "E.g. \"Size\"."
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$ref": "common.schema.json#/$defs/id"
+                },
+                "label": {
+                  "$ref": "common.schema.json#/$defs/text"
+                },
+                "price": {
+                  "type": "number",
+                  "minimum": 0,
+                  "description": "Default: the product price."
+                },
+                "stock": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "id",
+                "label"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/image"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "category",
+          "name"
+        ],
+        "additionalProperties": false,
+        "patternProperties": {
+          "^[a-z]{2,3}_locked$": {
+            "type": "boolean",
+            "description": "Marks the translations in this object as approved by a person."
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "categories",
+    "products"
+  ],
+  "additionalProperties": false
+}

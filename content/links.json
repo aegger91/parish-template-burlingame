@@ -1,0 +1,54 @@
+{
+  "$schema": "../schemas/links.schema.json",
+  "groups": [
+    {
+      "id": "church",
+      "title": { "en": "Church websites", "ru": "Церковные сайты" },
+      "links": [
+        {
+          "label": { "en": "Your diocese (sample link)", "ru": "Ваша епархия (образец ссылки)" },
+          "href": "https://www.example.org/",
+          "description": {
+            "en": "Replace with your diocese",
+            "ru": "Замените ссылкой на вашу епархию"
+          }
+        },
+        {
+          "label": {
+            "en": "Your jurisdiction (sample link)",
+            "ru": "Ваша юрисдикция (образец ссылки)"
+          },
+          "href": "https://www.example.com/"
+        },
+        {
+          "label": { "en": "Seminary (sample link)", "ru": "Духовная семинария (образец ссылки)" },
+          "href": "https://www.example.net/"
+        }
+      ]
+    },
+    {
+      "id": "resources",
+      "title": { "en": "Resources", "ru": "Полезные материалы" },
+      "links": [
+        {
+          "label": { "en": "Daily readings (sample link)", "ru": "Чтения дня (образец ссылки)" },
+          "href": "https://www.example.org/"
+        },
+        {
+          "label": {
+            "en": "Lives of the saints (sample link)",
+            "ru": "Жития святых (образец ссылки)"
+          },
+          "href": "https://www.example.com/"
+        },
+        {
+          "label": {
+            "en": "Liturgical texts (sample link)",
+            "ru": "Богослужебные тексты (образец ссылки)"
+          },
+          "href": "https://www.example.net/"
+        }
+      ]
+    }
+  ]
+}

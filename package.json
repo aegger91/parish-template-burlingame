@@ -1,0 +1,29 @@
+{
+  "name": "orthodox-parish-site-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Master template for Orthodox parish websites: schema-driven JSON content, bilingual (EN/RU) static output, reusable themed components. Blank version with generic sample content (St. Example Orthodox Church).",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/validate.mjs && node src/build.mjs",
+    "dev": "node scripts/serve.mjs --watch",
+    "serve": "node scripts/serve.mjs",
+    "validate": "node scripts/validate.mjs",
+    "schemas": "node scripts/schemas.mjs",
+    "check-links": "node scripts/check-links.mjs",
+    "check-links:external": "node scripts/check-links.mjs --external",
+    "check-crosses": "node scripts/check-crosses.mjs",
+    "check-copy": "node scripts/check-copy.mjs",
+    "translate": "node scripts/translate.mjs",
+    "translate:check": "node scripts/translate.mjs --check",
+    "test": "npm run build && npm run check-links && npm run check-crosses && npm run check-copy && npm run translate:check"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "marked": "^15.0.0"
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "$schema": "../schemas/services.schema.json",
+  "serviceTypes": [
+    {
+      "id": "vigil",
+      "name": { "en": "Vigil", "ru": "Всенощное бдение" },
+      "durationMinutes": 150,
+      "streamed": true
+    },
+    {
+      "id": "liturgy",
+      "name": { "en": "Divine Liturgy", "ru": "Божественная литургия" },
+      "durationMinutes": 120,
+      "streamed": true
+    },
+    {
+      "id": "akathist",
+      "name": { "en": "Akathist", "ru": "Акафист" },
+      "durationMinutes": 60,
+      "streamed": false
+    },
+    {
+      "id": "moleben",
+      "name": { "en": "Moleben", "ru": "Молебен" },
+      "durationMinutes": 45,
+      "streamed": true
+    }
+  ],
+  "standing": {
+    "title": { "en": "Every week", "ru": "Каждую неделю" },
+    "items": [
+      {
+        "label": { "en": "Saturday", "ru": "Суббота" },
+        "text": { "en": "Vigil at 6 pm", "ru": "Всенощное бдение в 18:00" }
+      },
+      {
+        "label": { "en": "Sunday", "ru": "Воскресенье" },
+        "text": { "en": "Divine Liturgy at 9:30 am", "ru": "Божественная литургия в 9:30" }
+      },
+      {
+        "label": { "en": "Wednesday", "ru": "Среда" },
+        "text": { "en": "Akathist at 6:30 pm", "ru": "Акафист в 18:30" }
+      }
+    ]
+  },
+  "season": {
+    "id": "nativity-fast",
+    "title": { "en": "Nativity Fast", "ru": "Рождественский пост" },
+    "accent": "Рождественский пост",
+    "text": { "en": "November 28 to January 6.", "ru": "С 28 ноября по 6 января." },
+    "start": "2026-11-28",
+    "end": "2027-01-06"
+  },
+  "notices": [
+    {
+      "id": "sample-notice",
+      "text": {
+        "en": "This is a sample schedule. Past services drop off on their own.",
+        "ru": "Это образец расписания. Прошедшие службы скрываются сами."
+      }
+    }
+  ],
+  "upcoming": [
+    { "id": "2026-11-21-vigil", "date": "2026-11-21", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2026-11-22-liturgy", "date": "2026-11-22", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2026-11-25-akathist",
+      "date": "2026-11-25",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    { "id": "2026-11-28-vigil", "date": "2026-11-28", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2026-11-29-liturgy", "date": "2026-11-29", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2026-12-02-akathist",
+      "date": "2026-12-02",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    {
+      "id": "2026-12-03-vigil",
+      "date": "2026-12-03",
+      "time": "18:00",
+      "serviceType": "vigil",
+      "note": { "en": "Eve of the Entry of the Theotokos", "ru": "Канун Введения во храм" }
+    },
+    {
+      "id": "2026-12-04-liturgy",
+      "date": "2026-12-04",
+      "time": "09:00",
+      "serviceType": "liturgy",
+      "note": {
+        "en": "Entry of the Theotokos into the Temple",
+        "ru": "Введение во храм Пресвятой Богородицы"
+      }
+    },
+    { "id": "2026-12-05-vigil", "date": "2026-12-05", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2026-12-06-liturgy", "date": "2026-12-06", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2026-12-09-akathist",
+      "date": "2026-12-09",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    { "id": "2026-12-12-vigil", "date": "2026-12-12", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2026-12-13-liturgy", "date": "2026-12-13", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2026-12-16-akathist",
+      "date": "2026-12-16",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    {
+      "id": "2026-12-18-vigil",
+      "date": "2026-12-18",
+      "time": "18:00",
+      "serviceType": "vigil",
+      "note": { "en": "Eve of St. Nicholas", "ru": "Канун дня свт. Николая" }
+    },
+    {
+      "id": "2026-12-19-liturgy",
+      "date": "2026-12-19",
+      "time": "09:00",
+      "serviceType": "liturgy",
+      "note": { "en": "St. Nicholas the Wonderworker", "ru": "Свт. Николай Чудотворец" }
+    },
+    { "id": "2026-12-19-vigil", "date": "2026-12-19", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2026-12-20-liturgy", "date": "2026-12-20", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2026-12-23-akathist",
+      "date": "2026-12-23",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    { "id": "2026-12-26-vigil", "date": "2026-12-26", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2026-12-27-liturgy", "date": "2026-12-27", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2026-12-31-moleben",
+      "date": "2026-12-31",
+      "time": "23:00",
+      "serviceType": "moleben",
+      "title": { "en": "New Year Moleben", "ru": "Новогодний молебен" }
+    },
+    { "id": "2027-01-02-vigil", "date": "2027-01-02", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2027-01-03-liturgy", "date": "2027-01-03", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2027-01-06-vigil",
+      "date": "2027-01-06",
+      "time": "18:00",
+      "serviceType": "vigil",
+      "note": { "en": "Eve of the Nativity of Christ", "ru": "Навечерие Рождества Христова" }
+    },
+    {
+      "id": "2027-01-07-liturgy",
+      "date": "2027-01-07",
+      "time": "09:30",
+      "serviceType": "liturgy",
+      "note": { "en": "Nativity of Christ", "ru": "Рождество Христово" }
+    },
+    { "id": "2027-01-09-vigil", "date": "2027-01-09", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2027-01-10-liturgy", "date": "2027-01-10", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2027-01-13-akathist",
+      "date": "2027-01-13",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    { "id": "2027-01-16-vigil", "date": "2027-01-16", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2027-01-17-liturgy", "date": "2027-01-17", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2027-01-18-vigil",
+      "date": "2027-01-18",
+      "time": "18:00",
+      "serviceType": "vigil",
+      "note": {
+        "en": "Theophany Eve, with the Great Blessing of Water",
+        "ru": "Крещенский сочельник, великое освящение воды"
+      }
+    },
+    {
+      "id": "2027-01-19-liturgy",
+      "date": "2027-01-19",
+      "time": "09:00",
+      "serviceType": "liturgy",
+      "note": { "en": "Theophany of the Lord", "ru": "Богоявление. Крещение Господне" }
+    },
+    {
+      "id": "2027-01-20-akathist",
+      "date": "2027-01-20",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    { "id": "2027-01-23-vigil", "date": "2027-01-23", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2027-01-24-liturgy", "date": "2027-01-24", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2027-01-27-akathist",
+      "date": "2027-01-27",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    { "id": "2027-01-30-vigil", "date": "2027-01-30", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2027-01-31-liturgy", "date": "2027-01-31", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2027-02-03-akathist",
+      "date": "2027-02-03",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    { "id": "2027-02-06-vigil", "date": "2027-02-06", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2027-02-07-liturgy", "date": "2027-02-07", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2027-02-10-akathist",
+      "date": "2027-02-10",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    { "id": "2027-02-13-vigil", "date": "2027-02-13", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2027-02-14-liturgy", "date": "2027-02-14", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2027-02-14-vigil",
+      "date": "2027-02-14",
+      "time": "18:00",
+      "serviceType": "vigil",
+      "note": { "en": "Eve of the Meeting of the Lord", "ru": "Канун Сретения Господня" }
+    },
+    {
+      "id": "2027-02-15-liturgy",
+      "date": "2027-02-15",
+      "time": "09:00",
+      "serviceType": "liturgy",
+      "note": { "en": "Meeting of the Lord", "ru": "Сретение Господне" }
+    },
+    {
+      "id": "2027-02-17-akathist",
+      "date": "2027-02-17",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    { "id": "2027-02-20-vigil", "date": "2027-02-20", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2027-02-21-liturgy", "date": "2027-02-21", "time": "09:30", "serviceType": "liturgy" },
+    {
+      "id": "2027-02-24-akathist",
+      "date": "2027-02-24",
+      "time": "18:30",
+      "serviceType": "akathist"
+    },
+    { "id": "2027-02-27-vigil", "date": "2027-02-27", "time": "18:00", "serviceType": "vigil" },
+    { "id": "2027-02-28-liturgy", "date": "2027-02-28", "time": "09:30", "serviceType": "liturgy" }
+  ]
+}

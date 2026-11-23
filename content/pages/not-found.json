@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "not-found",
+  "slug": "404",
+  "order": 999,
+  "nav": { "show": false },
+  "sitemap": false,
+  "noindex": true,
+  "title": { "en": "Page not found", "ru": "Страница не найдена" },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "title": { "en": "Page not found", "ru": "Страница не найдена" },
+      "lede": {
+        "en": "The page may have moved. Try one of these instead.",
+        "ru": "Возможно, страница переехала. Попробуйте одну из этих."
+      }
+    },
+    {
+      "id": "links",
+      "type": "card-grid",
+      "cards": [
+        {
+          "title": { "en": "Home", "ru": "Главная" },
+          "icon": "church",
+          "link": { "page": "home" }
+        },
+        {
+          "title": { "en": "Service schedule", "ru": "Расписание" },
+          "icon": "censer",
+          "link": { "page": "services" }
+        },
+        {
+          "title": { "en": "Contact", "ru": "Контакты" },
+          "icon": "bell",
+          "link": { "page": "contact" }
+        }
+      ]
+    }
+  ]
+}

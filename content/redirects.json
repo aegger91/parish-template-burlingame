@@ -1,0 +1,5 @@
+{
+  "$schema": "../schemas/redirects.schema.json",
+  "$comment": "Old addresses that should keep working, e.g. { \"from\": \"/donate.html\", \"page\": \"donate\" }.",
+  "redirects": []
+}

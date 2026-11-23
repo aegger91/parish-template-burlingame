@@ -1,0 +1,99 @@
+{
+  "$schema": "../schemas/requests.schema.json",
+  "$comment": "Each service is a card. price.type: \"free\" or \"donation\" (with an optional suggested amount). icon: a pictogram from the site icon set, or give an image. A card with a link goes to that page instead of opening the request form.",
+  "recipient": {
+    "en": "Father John or the parish office",
+    "ru": "отцу Иоанну или в канцелярию прихода"
+  },
+  "endpoint": "",
+  "note": {
+    "en": "Sample list. Fees and times here are placeholders for the parish to set.",
+    "ru": "Образец списка. Пожертвования и время указаны для примера, приход задает их сам."
+  },
+  "services": [
+    {
+      "id": "zapiska",
+      "icon": "slip",
+      "title": { "en": "Submit a Commemoration Note", "ru": "Подать записку" },
+      "summary": { "en": "Names for health or repose.", "ru": "Имена о здравии или о упокоении." },
+      "price": { "type": "donation" },
+      "duration": { "en": "Read at the next Liturgy", "ru": "Читается за ближайшей литургией" },
+      "link": { "page": "zapiski" },
+      "cta": { "en": "Write a note", "ru": "Написать записку" }
+    },
+    {
+      "id": "moleben",
+      "icon": "icon-frame",
+      "title": { "en": "Moleben", "ru": "Молебен" },
+      "summary": { "en": "Sample text. One line.", "ru": "Образец текста. Одна строка." },
+      "price": { "type": "donation", "suggested": 50 },
+      "duration": { "en": "About 30 minutes", "ru": "Около 30 минут" }
+    },
+    {
+      "id": "baptism",
+      "icon": "font",
+      "title": { "en": "Baptism", "ru": "Крещение" },
+      "summary": { "en": "Sample text. One line.", "ru": "Образец текста. Одна строка." },
+      "price": { "type": "donation" },
+      "duration": { "en": "About 1 hour", "ru": "Около часа" }
+    },
+    {
+      "id": "confession",
+      "icon": "gospel",
+      "title": { "en": "Confession", "ru": "Исповедь" },
+      "summary": { "en": "Sample text. One line.", "ru": "Образец текста. Одна строка." },
+      "price": { "type": "free" },
+      "duration": { "en": "Before or after services", "ru": "До или после служб" },
+      "askDate": true
+    },
+    {
+      "id": "chrismation",
+      "icon": "oil",
+      "title": { "en": "Chrismation", "ru": "Миропомазание" },
+      "summary": { "en": "Sample text. One line.", "ru": "Образец текста. Одна строка." },
+      "price": { "type": "free" },
+      "duration": { "en": "After preparation", "ru": "После подготовки" }
+    },
+    {
+      "id": "wedding",
+      "icon": "crowns",
+      "title": { "en": "Wedding (Crowning)", "ru": "Венчание" },
+      "summary": { "en": "Sample text. One line.", "ru": "Образец текста. Одна строка." },
+      "price": { "type": "donation" },
+      "duration": { "en": "About 1 hour", "ru": "Около часа" }
+    },
+    {
+      "id": "unction",
+      "icon": "oil",
+      "title": { "en": "Holy Unction", "ru": "Соборование" },
+      "summary": { "en": "Sample text. One line.", "ru": "Образец текста. Одна строка." },
+      "price": { "type": "free" },
+      "duration": { "en": "About 1 hour", "ru": "Около часа" }
+    },
+    {
+      "id": "blessing",
+      "icon": "house",
+      "title": { "en": "House or Car Blessing", "ru": "Освящение дома или машины" },
+      "summary": { "en": "Sample text. One line.", "ru": "Образец текста. Одна строка." },
+      "price": { "type": "donation" },
+      "duration": { "en": "About 30 minutes", "ru": "Около 30 минут" }
+    },
+    {
+      "id": "funeral",
+      "icon": "candle",
+      "title": { "en": "Funeral Service (Panikhida, Otpevanie)", "ru": "Панихида, отпевание" },
+      "summary": { "en": "Sample text. One line.", "ru": "Образец текста. Одна строка." },
+      "price": { "type": "donation" },
+      "duration": { "en": "About 1 hour", "ru": "Около часа" },
+      "accent": "Панихида · Отпевание"
+    },
+    {
+      "id": "counseling",
+      "icon": "prayer-rope",
+      "title": { "en": "Pastoral Counseling", "ru": "Беседа со священником" },
+      "summary": { "en": "Sample text. One line.", "ru": "Образец текста. Одна строка." },
+      "price": { "type": "free" },
+      "duration": { "en": "About 45 minutes", "ru": "Около 45 минут" }
+    }
+  ]
+}

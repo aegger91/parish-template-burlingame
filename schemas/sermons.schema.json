@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sermons.schema.json",
+  "title": "Sermons",
+  "description": "content/sermons.json: recorded sermons and their series.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "series": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sermons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "needsReview": {
+            "type": "string",
+            "description": "Note for editors. Never shown on the site."
+          },
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "date": {
+            "$ref": "common.schema.json#/$defs/date"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "speaker": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Person id."
+          },
+          "series": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "scripture": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "summary": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "audio": {
+            "type": "object",
+            "properties": {
+              "src": {
+                "anyOf": [
+                  {
+                    "$ref": "common.schema.json#/$defs/path"
+                  },
+                  {
+                    "$ref": "common.schema.json#/$defs/url"
+                  }
+                ]
+              },
+              "duration": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Seconds."
+              }
+            },
+            "required": [
+              "src"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "title"
+        ],
+        "additionalProperties": false,
+        "patternProperties": {
+          "^[a-z]{2,3}_locked$": {
+            "type": "boolean",
+            "description": "Marks the translations in this object as approved by a person."
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "sermons"
+  ],
+  "additionalProperties": false
+}

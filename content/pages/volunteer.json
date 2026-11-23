@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "volunteer",
+  "slug": "volunteer",
+  "parent": "get-involved",
+  "order": 41,
+  "title": { "en": "Volunteer and Needs", "ru": "Помощь и нужды" },
+  "nav": { "icon": "candle" },
+  "summary": {
+    "en": "Volunteer sign-ups and parish needs.",
+    "ru": "Запись на помощь и нужды прихода."
+  },
+  "seo": {
+    "description": {
+      "en": "Sample volunteer sign-ups and parish needs.",
+      "ru": "Образец записи на помощь и нужд прихода."
+    }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Get Involved", "ru": "Участие" },
+      "title": { "en": "Volunteer and Needs", "ru": "Помощь и нужды" },
+      "lede": {
+        "en": "Sample sign-ups and needs from OrthodoxConnect.",
+        "ru": "Образцы записей и нужд из OrthodoxConnect."
+      }
+    },
+    {
+      "id": "needs",
+      "type": "orthodoxconnect-feed",
+      "title": { "en": "Ways to help", "ru": "Чем помочь" },
+      "kinds": ["volunteer", "need"],
+      "filters": true,
+      "appActions": ["postNeed"]
+    }
+  ]
+}

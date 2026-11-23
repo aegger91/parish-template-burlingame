@@ -1,0 +1,32 @@
+{
+  "$schema": "../schemas/navigation.schema.json",
+  "header": {
+    "button": {
+      "page": "donate",
+      "label": { "en": "Donate", "ru": "Пожертвовать" }
+    }
+  },
+  "footer": {
+    "about": {
+      "en": "Sample text. One line about the parish.",
+      "ru": "Образец текста. Одна строка о приходе."
+    },
+    "pages": "top",
+    "connect": [
+      {
+        "label": { "en": "Livestream", "ru": "Трансляция" },
+        "page": "livestream",
+        "icon": "live"
+      },
+      {
+        "label": { "en": "Join us on OrthodoxConnect", "ru": "Мы в OrthodoxConnect" },
+        "href": "https://app.orthodoxconnect.example/join/sample-parish",
+        "icon": "church"
+      }
+    ],
+    "legal": {
+      "en": "Sample content for the parish website template.",
+      "ru": "Образец содержания для шаблона сайта прихода."
+    }
+  }
+}

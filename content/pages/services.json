@@ -1,0 +1,60 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "services",
+  "slug": "services",
+  "order": 20,
+  "title": { "en": "Services & Schedule", "ru": "Богослужения и расписание" },
+  "nav": {
+    "label": { "en": "Services", "ru": "Богослужения" },
+    "overview": { "en": "Schedule", "ru": "Расписание" },
+    "icon": "censer"
+  },
+  "seo": {
+    "description": {
+      "en": "Sample service schedule by week and by month.",
+      "ru": "Образец расписания богослужений по неделям и по месяцам."
+    }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "eyebrow": { "en": "Services", "ru": "Богослужения" },
+      "title": { "en": "Services & Schedule", "ru": "Богослужения и расписание" },
+      "lede": { "en": "Sample schedule.", "ru": "Образец расписания." }
+    },
+    {
+      "id": "schedule",
+      "type": "schedule",
+      "showSeason": true,
+      "showNotices": true,
+      "showLegend": true
+    },
+    {
+      "id": "standing",
+      "type": "service-times",
+      "title": { "en": "Every week", "ru": "Каждую неделю" },
+      "showStanding": true,
+      "limit": 0
+    },
+    {
+      "id": "requests",
+      "type": "cta-band",
+      "title": { "en": "Prayer requests", "ru": "Требы и записки" },
+      "text": {
+        "en": "Ask for a moleben or panikhida, or send names to be remembered at the Liturgy.",
+        "ru": "Закажите молебен или панихиду или подайте имена для поминовения за литургией."
+      },
+      "actions": [
+        {
+          "label": { "en": "Request a service", "ru": "Заказать требу" },
+          "page": "request-service"
+        },
+        {
+          "label": { "en": "Commemoration notes", "ru": "Записки" },
+          "page": "zapiski"
+        }
+      ]
+    }
+  ]
+}

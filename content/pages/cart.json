@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/page.schema.json",
+  "id": "cart",
+  "slug": "cart",
+  "order": 51,
+  "requires": "cart",
+  "nav": { "show": false },
+  "sitemap": false,
+  "noindex": true,
+  "title": { "en": "Cart", "ru": "Корзина" },
+  "seo": {
+    "description": { "en": "Your cart.", "ru": "Ваша корзина." }
+  },
+  "sections": [
+    {
+      "id": "header",
+      "type": "page-header",
+      "title": { "en": "Your cart", "ru": "Корзина" }
+    },
+    { "id": "cart", "type": "cart" }
+  ]
+}

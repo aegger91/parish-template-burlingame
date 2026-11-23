@@ -1,0 +1,83 @@
+{
+  "$schema": "../schemas/galleries.schema.json",
+  "galleries": [
+    {
+      "id": "church",
+      "title": { "en": "The church", "ru": "Храм" },
+      "images": [
+        {
+          "src": "/assets/img/sample-exterior.jpg",
+          "alt": {
+            "en": "Sample image: the church at dusk",
+            "ru": "Образец изображения: храм в сумерках"
+          }
+        },
+        {
+          "src": "/assets/img/sample-interior.jpg",
+          "alt": { "en": "Sample image: an iconostasis", "ru": "Образец изображения: иконостас" }
+        },
+        {
+          "src": "/assets/img/sample-gallery-2.jpg",
+          "alt": { "en": "Sample image: an iconostasis", "ru": "Образец изображения: иконостас" }
+        },
+        {
+          "src": "/assets/img/sample-gallery-1.jpg",
+          "alt": {
+            "en": "Sample image: an Orthodox church",
+            "ru": "Образец изображения: православный храм"
+          }
+        }
+      ]
+    },
+    {
+      "id": "feasts",
+      "title": { "en": "Feast days", "ru": "Праздники" },
+      "images": [
+        {
+          "src": "/assets/img/sample-gallery-3.jpg",
+          "alt": {
+            "en": "Sample image: a candle stand with lit candles",
+            "ru": "Образец изображения: подсвечник с горящими свечами"
+          }
+        },
+        {
+          "src": "/assets/img/sample-gallery-4.jpg",
+          "alt": {
+            "en": "Sample image: an Orthodox church",
+            "ru": "Образец изображения: православный храм"
+          }
+        },
+        {
+          "src": "/assets/img/sample-news-2.jpg",
+          "alt": { "en": "Sample image: a chalice", "ru": "Образец изображения: чаша" }
+        },
+        {
+          "src": "/assets/img/sample-hall.jpg",
+          "alt": { "en": "Sample image: a censer", "ru": "Образец изображения: кадило" }
+        }
+      ]
+    },
+    {
+      "id": "parish-life",
+      "title": { "en": "Parish life", "ru": "Жизнь прихода" },
+      "images": [
+        {
+          "src": "/assets/img/sample-gallery-5.jpg",
+          "alt": { "en": "Sample image: church bells", "ru": "Образец изображения: колокола" }
+        },
+        {
+          "src": "/assets/img/sample-gallery-6.jpg",
+          "alt": { "en": "Sample image: a prayer rope", "ru": "Образец изображения: четки" }
+        },
+        {
+          "src": "/assets/img/sample-community.jpg",
+          "alt": { "en": "Sample image: lit candles", "ru": "Образец изображения: горящие свечи" }
+        },
+        {
+          "src": "/assets/img/sample-school.jpg",
+          "alt": { "en": "Sample image: a Gospel book", "ru": "Образец изображения: Евангелие" }
+        }
+      ]
+    }
+  ]
+}

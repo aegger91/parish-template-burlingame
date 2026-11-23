@@ -1,0 +1,71 @@
+{
+  "$schema": "../schemas/sermons.schema.json",
+  "series": [
+    {
+      "id": "sunday",
+      "label": { "en": "Sunday homilies", "ru": "Воскресные проповеди" }
+    },
+    {
+      "id": "feasts",
+      "label": { "en": "Feast days", "ru": "Праздники" }
+    },
+    {
+      "id": "nativity-fast",
+      "label": { "en": "Nativity Fast talks", "ru": "Беседы в Рождественский пост" }
+    }
+  ],
+  "sermons": [
+    {
+      "id": "2026-11-22",
+      "date": "2026-11-22",
+      "title": { "en": "The rich fool (sample)", "ru": "О безумном богаче (образец)" },
+      "speaker": "john-sample",
+      "series": "sunday",
+      "scripture": { "en": "Luke 12:16-21", "ru": "Лк. 12:16-21" },
+      "summary": {
+        "en": "What it means to be rich toward God.",
+        "ru": "Что значит богатеть в Бога."
+      },
+      "audio": { "src": "/assets/audio/sample-sermon.wav", "duration": 24 }
+    },
+    {
+      "id": "2026-11-15",
+      "date": "2026-11-15",
+      "title": { "en": "The Good Samaritan (sample)", "ru": "О милосердном самарянине (образец)" },
+      "speaker": "john-sample",
+      "series": "sunday",
+      "scripture": { "en": "Luke 10:25-37", "ru": "Лк. 10:25-37" },
+      "summary": { "en": "Who is my neighbor?", "ru": "Кто мой ближний?" },
+      "audio": { "src": "/assets/audio/sample-sermon.wav", "duration": 24 }
+    },
+    {
+      "id": "2026-11-21",
+      "date": "2026-11-21",
+      "title": {
+        "en": "Why we fast before the Nativity (sample)",
+        "ru": "Зачем мы постимся перед Рождеством (образец)"
+      },
+      "speaker": "peter-example",
+      "series": "nativity-fast",
+      "scripture": { "en": "Matthew 6:16-18", "ru": "Мф. 6:16-18" },
+      "summary": {
+        "en": "A short talk on the Nativity Fast.",
+        "ru": "Краткая беседа о Рождественском посте."
+      },
+      "audio": { "src": "/assets/audio/sample-sermon.wav", "duration": 24 }
+    },
+    {
+      "id": "2026-11-08",
+      "date": "2026-11-08",
+      "title": { "en": "The Archangel Michael (sample)", "ru": "Об Архистратиге Михаиле (образец)" },
+      "speaker": "john-sample",
+      "series": "feasts",
+      "scripture": { "en": "Hebrews 2:2-10", "ru": "Евр. 2:2-10" },
+      "summary": {
+        "en": "Homily on the Synaxis of the Bodiless Powers.",
+        "ru": "Слово в Собор Архистратига Михаила."
+      },
+      "audio": { "src": "/assets/audio/sample-sermon.wav", "duration": 24 }
+    }
+  ]
+}

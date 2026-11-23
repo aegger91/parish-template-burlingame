@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "calendar.schema.json",
+  "title": "Church calendar",
+  "description": "content/calendar.json: feasts by church date (fixed) and by days from Pascha (movable). Shown in the schedule and hero.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "$comment": {
+      "type": "string"
+    },
+    "fixed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "pattern": "^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+            "description": "MM-DD on the church calendar."
+          },
+          "rank": {
+            "enum": [
+              "great",
+              "major",
+              "saint",
+              "observance"
+            ]
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "required": [
+          "date",
+          "rank",
+          "title"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "movable": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Days after Pascha (negative before)."
+          },
+          "rank": {
+            "enum": [
+              "great",
+              "major",
+              "saint",
+              "observance"
+            ]
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "required": [
+          "offset",
+          "rank",
+          "title"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "fixed",
+    "movable"
+  ],
+  "additionalProperties": false
+}
