@@ -90,10 +90,11 @@
 }
 
 .btn--secondary {
-  --btn-bg: transparent;
+  --btn-bg: var(--surface-raised);
   --btn-fg: var(--brand);
   --btn-border: var(--border-strong);
   --btn-hover: var(--surface-alt);
+  text-transform: none;
 }
 
 .btn--secondary:hover {

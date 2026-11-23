@@ -7,7 +7,7 @@
   "requires": "commemorations",
   "title": { "en": "Commemoration Names and Candles", "ru": "Записки и свечи" },
   "nav": {
-    "label": { "en": "Commemoration names", "ru": "Записки и свечи" },
+    "label": { "en": "Prayer requests", "ru": "Записки и свечи" },
     "icon": "slip"
   },
   "summary": {
